@@ -1,0 +1,621 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lettre de motivation — Alexandre-Philippe PEREZ</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      html {
+        font-size: 12px;
+      }
+
+      :root {
+        --violet: #6d28d9;
+        --violet-d: #4c1d95;
+        --violet-l: #8b5cf6;
+        --violet-ll: #c4b5fd;
+        --violet-bg: #ede9fe;
+        --white: #ffffff;
+        --off: #faf9ff;
+        --border: #ddd6fe;
+        --text: #1b0b3b;
+        --text-v: #4c1d95;
+        --fp: "Press Start 2P", monospace;
+        --fb: "VT323", monospace;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #08001a;
+        background-image: repeating-linear-gradient(
+          0deg,
+          transparent,
+          transparent 3px,
+          rgba(109, 40, 217, 0.04) 3px,
+          rgba(109, 40, 217, 0.04) 4px
+        );
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 2.5rem 1rem;
+      }
+
+      /* ── PAGE A4 ── */
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        background: var(--white);
+        color: var(--text);
+        position: relative;
+        border: 4px solid var(--violet);
+        box-shadow:
+          0 0 0 4px var(--white),
+          0 0 0 8px var(--violet-ll),
+          0 0 4rem rgba(109, 40, 217, 0.45);
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* coins pixel */
+      .c {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        background: var(--violet);
+        z-index: 3;
+      }
+      .c.tl {
+        top: -4px;
+        left: -4px;
+      }
+      .c.tr {
+        top: -4px;
+        right: -4px;
+      }
+      .c.bl {
+        bottom: -4px;
+        left: -4px;
+      }
+      .c.br {
+        bottom: -4px;
+        right: -4px;
+      }
+
+      /* ── WIN-BAR ── */
+      .win-bar {
+        background: var(--white);
+        border-bottom: 4px solid var(--violet);
+        padding: 0.9rem 1.5rem 0.75rem;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+      }
+
+      .wd {
+        width: 10px;
+        height: 10px;
+        image-rendering: pixelated;
+      }
+      .wd.a {
+        background: var(--violet);
+        border: 2px solid var(--violet-l);
+      }
+      .wd.b {
+        background: var(--violet-ll);
+        border: 2px solid var(--border);
+      }
+      .wd.c2 {
+        background: var(--border);
+        border: 2px solid var(--violet-ll);
+      }
+
+      .win-path {
+        font-family: var(--fp);
+        font-size: 1rem;
+        color: var(--violet-l);
+        margin-left: 0.5rem;
+      }
+
+      /* ── CORPS DE LA LETTRE ── */
+      .letter {
+        flex: 1;
+        padding: 1.4rem 1.8rem 1.2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+      }
+
+      /* ── BLOC EXPÉDITEUR / DESTINATAIRE ── */
+      .meta-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.2rem;
+        align-items: flex-start;
+      }
+
+      /* Bloc expéditeur (gauche) */
+      .sender {
+        padding: 0.6rem 0.8rem;
+        background: var(--off);
+        border: 2px solid var(--border);
+        border-left: 4px solid var(--violet);
+        position: relative;
+      }
+
+      .sender::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        right: -3px;
+        width: 100%;
+        height: 100%;
+        background: var(--violet);
+        opacity: 0.05;
+        z-index: -1;
+      }
+
+      .sender-name {
+        font-family: var(--fp);
+        font-size: 1.3rem;
+        color: var(--text);
+        line-height: 1.4;
+        text-shadow: 2px 2px 0 var(--violet-ll);
+        margin-bottom: 0.4rem;
+      }
+
+      .sender-info {
+        font-family: var(--fb);
+        font-size: 1.35rem;
+        color: var(--text-v);
+        line-height: 1.4;
+      }
+
+      .sender-info a {
+        color: var(--text-v);
+        text-decoration: none;
+      }
+
+      .ci {
+        font-family: var(--fp);
+        font-size: 0.9rem;
+        color: var(--violet);
+        margin-right: 0.3rem;
+      }
+
+      /* Bloc destinataire (droite) */
+      .recipient {
+        padding: 0.6rem 0.8rem;
+        background: var(--violet-bg);
+        border: 2px solid var(--border);
+        border-top: 4px solid var(--violet);
+        position: relative;
+      }
+
+      .recipient::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        right: -3px;
+        width: 100%;
+        height: 100%;
+        background: var(--violet);
+        opacity: 0.06;
+        z-index: -1;
+      }
+
+      .recipient-label {
+        font-family: var(--fp);
+        font-size: 0.9rem;
+        color: var(--violet);
+        margin-bottom: 0.4rem;
+        line-height: 1.5;
+      }
+
+      .recipient-label::before {
+        content: "★ ";
+        color: var(--violet-l);
+      }
+
+      .recipient-info {
+        font-family: var(--fb);
+        font-size: 1.35rem;
+        color: var(--text-v);
+        line-height: 1.4;
+      }
+
+      /* ── DATE ── */
+      .date-line {
+        font-family: var(--fb);
+        font-size: 1.35rem;
+        color: var(--text-v);
+        text-align: right;
+        line-height: 1.4;
+      }
+
+      /* ── OBJET ── */
+      .title-chip {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.4rem 0.85rem;
+        background: var(--violet);
+        border: 2px solid var(--violet-l);
+        font-family: var(--fp);
+        font-size: 1.5rem;
+        color: #fff;
+        letter-spacing: 0.03em;
+        position: relative;
+      }
+
+      .title-chip::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        right: -3px;
+        width: 100%;
+        height: 100%;
+        background: var(--violet-d);
+        opacity: 0.3;
+        z-index: -1;
+      }
+
+      .cur {
+        display: inline-block;
+        width: 0.8rem;
+        height: 2rem;
+        background: #fff;
+        animation: blink 1s step-end infinite;
+        vertical-align: middle;
+      }
+
+      /* ── CORPS DU TEXTE ── */
+      .para {
+        font-family: var(--fb);
+        font-size: 1.5rem;
+        color: var(--text-v);
+        line-height: 1.55;
+      }
+
+      .kw {
+        font-family: var(--fp);
+        font-size: 1rem;
+        color: var(--violet);
+        background: var(--violet-bg);
+        padding: 0.1rem 0.35rem;
+        border: 1px solid var(--border);
+        line-height: 1.8;
+        vertical-align: middle;
+      }
+
+      /* ── SIGNATURE ── */
+      .sig-block {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 0.5rem;
+      }
+
+      .sig-inner {
+        padding: 0.7rem 0.9rem;
+        background: var(--off);
+        border: 2px solid var(--border);
+        border-left: 4px solid var(--violet);
+        position: relative;
+        min-width: 180px;
+      }
+
+
+      .sig-inner::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        right: -3px;
+        width: 100%;
+        height: 100%;
+        background: var(--violet);
+        opacity: 0.05;
+        z-index: -1;
+      }
+
+      .sig-polite {
+        font-family: var(--fb);
+        font-size: 1.35rem;
+        color: var(--violet);
+        margin-bottom: 0.3rem;
+      }
+
+      .sig-name {
+        font-family: var(--fp);
+        font-size: 1rem;
+        color: var(--text);
+        line-height: 1.6;
+        margin-bottom: 0.5rem;
+      }
+
+      /* Canvas de signature */
+      .sig-canvas-wrap {
+        position: relative;
+      }
+
+      #sig-canvas {
+        display: block;
+        border: 2px dashed var(--violet-ll);
+        background: var(--white);
+        cursor: crosshair;
+        touch-action: none;
+      }
+
+      .btn-clear {
+        font-family: var(--fp);
+        font-size: 0.8rem;
+        color: var(--violet);
+        background: var(--violet-bg);
+        border: 2px solid var(--border);
+        padding: 0.2rem 0.5rem;
+        cursor: pointer;
+        margin-top: 0.3rem;
+        display: block;
+        width: 100%;
+        text-align: center;
+        position: relative;
+      }
+
+      .btn-clear:hover {
+        background: var(--border);
+      }
+
+      @media print {
+        .btn-clear,
+        .sig-hint {
+          display: none;
+        }
+        #sig-canvas {
+          border: 1px solid var(--border);
+        }
+      }
+
+      /* ── FOOTER ── */
+      .footer {
+        border-top: 4px solid var(--violet-d);
+        padding: 0.55rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: var(--violet);
+      }
+
+      .ftxt {
+        font-family: var(--fp);
+        font-size: 1rem;
+        text-decoration: none;
+        color: var(--violet-ll);
+        line-height: 1.4;
+      }
+
+      .coin {
+        font-family: var(--fp);
+        font-size: 1rem;
+        color: var(--violet-ll);
+        animation: blink 1s step-end infinite;
+      }
+
+      .fhrt {
+        font-family: var(--fp);
+        font-size: 1rem;
+        color: #fff;
+        letter-spacing: 0.35rem;
+      }
+
+      /* ── IMPRESSION ── */
+      @media print {
+        @page {
+          size: A4;
+          margin: 0;
+        }
+        body {
+          background: none;
+          padding: 0;
+        }
+        .page {
+          width: 210mm;
+          min-height: 297mm;
+          box-shadow: none;
+        }
+        .cur,
+        .coin {
+          animation: none;
+        }
+      }
+
+      @keyframes blink {
+        50% {
+          opacity: 0;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="page">
+      <div class="c tl"></div>
+      <div class="c tr"></div>
+      <div class="c bl"></div>
+      <div class="c br"></div>
+
+      <!-- ══ WIN-BAR ══ -->
+      <div class="win-bar">
+        <div class="wd a"></div>
+        <div class="wd b"></div>
+        <div class="wd c2"></div>
+        <span class="win-path"
+          >~/lettre-de-motivation/perez-alexandre-philippe</span
+        >
+      </div>
+
+      <!-- ══ CORPS ══ -->
+      <div class="letter">
+        <!-- EXPÉDITEUR / DESTINATAIRE -->
+        <div class="meta-grid">
+          <!-- ✏️ Expéditeur -->
+          <div class="sender">
+            <div class="sender-name">PEREZ Alexandre-Philippe</div>
+            <div class="sender-info">
+              <div>14 Terrasse Jean Renaudie, 38400 Saint-Martin-d'Hères</div>
+              <div>
+                <span class="ci">TEL</span
+                ><a href="tel:+33630754686">06 30 75 46 86</a>
+              </div>
+              <div>
+                <span class="ci">MAIL</span
+                ><a href="mailto:perezalexandre430@gmail.com"
+                  >perezalexandre430@gmail.com</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- ✏️ Destinataire -->
+          <div class="recipient">
+            <div class="recipient-label">A l'attention de</div>
+            <div class="recipient-info">
+              <div><strong>[NOM DE L'ENTREPRISE]</strong></div>
+              <div>[Prénom Nom du recruteur]</div>
+              <div>[Adresse postale]</div>
+              <div>[Code postal, Ville]</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ✏️ DATE -->
+        <div class="date-line">Saint-Martin-d'Hères, le [DATE]</div>
+
+        <!-- OBJET -->
+        <div>
+          <div class="title-chip">
+            OBJET : STAGE &amp; ALTERNANCE : DEV WEB JUNIOR<span
+              class="cur"
+            ></span>
+          </div>
+        </div>
+
+        <!-- SALUTATION -->
+        <p class="para">Madame, Monsieur,</p>
+
+        <!-- PARAGRAPHE 1 — Accroche / contexte -->
+        <p class="para">
+          Actuellement en <span class="kw">BACHELOR DEV WEB</span> à My Digital
+          School de Grenoble, je me permets de vous adresser ma candidature pour
+          un stage ou une alternance au sein de
+          <span class="kw">[NOM DE L'ENTREPRISE]</span>. Votre démarche d'allier
+          exigence technique et soin apporté à l'expérience utilisateur résonne
+          directement avec ma propre vision du métier.
+        </p>
+
+        <!-- PARAGRAPHE 2 — Parcours / valeur ajoutée -->
+        <p class="para">
+          Avant le code, il y a eu l'animation. Depuis 2022, j'accompagne des
+          enfants à Saint-Martin-d'Hères en tant qu'animateur péri/
+          extra-scolaire. Ce terrain m'a enseigné l'essentiel :
+          <span class="kw">SIMPLIFIER</span> un message complexe,
+          <span class="kw">ADAPTER</span> son approche au public et retenir une
+          attention volatile. Des réflexes que je retrouve naturellement dans
+          chaque projet que je construis.
+        </p>
+
+        <!-- PARAGRAPHE 3 — Projets / compétences -->
+        <p class="para">
+          Mes projets tels que
+          <span class="kw">AGITANIM</span> (plateforme inclusive d'aide à
+          l'animation), et <span class="kw">ABY-CODEX</span> (analyse
+          philosophique et psychologique par la pop culture et l'horreur)
+          illustrent une méthode constante : l'idée et le design précèdent
+          toujours le code. C'est pour cela que je m'attache à livrer des
+          interfaces aussi solides visuellement que techniquement.
+        </p>
+
+        <!-- PARAGRAPHE 4 — Clôture -->
+        <p class="para">
+          Intégrer <span class="kw">[NOM DE L'ENTREPRISE]</span> serait
+          l'occasion de mettre cette approche au service de vos projets,
+          d'apprendre aux côtés de votre équipe et de contribuer concrètement
+          dès les premiers jours. Je reste à votre disposition pour un entretien
+          et vous adresse, dans cette attente, mes cordiales salutations.
+        </p>
+
+        <!-- SIGNATURE -->
+        <div class="sig-block">
+          <div class="sig-inner">
+            <div class="sig-polite">Cordialement,</div>
+            <div class="sig-name">PEREZ Alexandre-Philippe</div>
+            <div class="sig-canvas-wrap">
+              <canvas id="sig-canvas" width="220" height="70"></canvas>
+              <button class="btn-clear" id="btn-clear">⌫ EFFACER</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══ FOOTER ══ -->
+      <footer class="footer">
+        <a
+          href="https://perezpixel.com"
+          class="ftxt"
+          target="_blank"
+          rel="noopener"
+          >perezpixel.com</a
+        >
+        <span class="fhrt">♥ ♥ ♥</span>
+        <span class="coin">INSERT COIN TO HIRE</span>
+      </footer>
+    </div>
+
+    <script>
+      const canvas = document.getElementById("sig-canvas");
+      const ctx = canvas.getContext("2d");
+      ctx.strokeStyle = "#4c1d95";
+      ctx.lineWidth = 2;
+      ctx.lineCap = "round";
+      ctx.lineJoin = "round";
+
+      let drawing = false;
+
+      function getPos(e) {
+        const r = canvas.getBoundingClientRect();
+        const src = e.touches ? e.touches[0] : e;
+        return { x: src.clientX - r.left, y: src.clientY - r.top };
+      }
+
+      canvas.addEventListener("pointerdown", (e) => {
+        drawing = true;
+        const p = getPos(e);
+        ctx.beginPath();
+        ctx.moveTo(p.x, p.y);
+        e.preventDefault();
+      });
+
+      canvas.addEventListener("pointermove", (e) => {
+        if (!drawing) return;
+        const p = getPos(e);
+        ctx.lineTo(p.x, p.y);
+        ctx.stroke();
+        e.preventDefault();
+      });
+
+      canvas.addEventListener("pointerup", () => (drawing = false));
+      canvas.addEventListener("pointerleave", () => (drawing = false));
+
+      document.getElementById("btn-clear").addEventListener("click", () => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+      });
+    </script>
+  </body>
+</html>
