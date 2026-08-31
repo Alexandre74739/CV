@@ -172,7 +172,7 @@
         background: var(--violet);
         border: 2px solid var(--violet-l);
         font-family: var(--fp);
-        font-size: 1.5rem;
+        font-size: 1.45rem;
         color: #fff;
         letter-spacing: 0.03em;
         position: relative;
@@ -411,6 +411,14 @@
         font-size: 1.25rem;
         color: #fff;
         line-height: 1.35;
+      }
+
+      .dip-mail {
+        font-family: var(--fb);
+        font-size: 1.1rem;
+        color: var(--violet-ll);
+        word-break: break-all;
+        margin-top: 0.2rem;
       }
 
       /* Langues */
@@ -663,7 +671,7 @@
       /* ── IMPRESSION ── */
       @media print {
         @page {
-          size: A4;
+          size: 210mm 297mm;
           margin: 0;
         }
         * {
@@ -718,14 +726,20 @@
 
             <!-- ✏️ Poste -->
             <div class="title-chip">
-              ALTERNANCE : DEV WEB JUNIOR<span class="cur"></span>
+              ALTERNANCE : INTEGRATEUR FRONTEND<span class="cur"></span>
             </div>
 
             <!-- ✏️ Barres de stats — ajouter .on pour remplir -->
             <div class="stats">
-              <div class="slbl">FRONT-END : <span>Traduis un propos en interface.</span></div>
-              <div class="slbl">UX/UI : <span>Permet au design de porter le message.</span></div>
-              <div class="slbl">BACK-END : <span>Pose les fondations du conte.</span></div>
+              <div class="slbl">
+                FRONT-END : <span>Intègre des interfaces fluides et performantes.</span>
+              </div>
+              <div class="slbl">
+                UX/UI : <span>Permet au design de porter le message.</span>
+              </div>
+              <div class="slbl">
+                BACK-END : <span>Pose les fondations du conte.</span>
+              </div>
             </div>
           </div>
 
@@ -793,9 +807,10 @@
         <!-- ✏️ Accroche -->
         <div class="tagline">
           Lafontaine disait : "une morale nue apporte l'ennui, le conte fait
-          passer le précepte avec lui."<br />À la croisée entre l'animation et le code, ma mission est simple : instruire autant que divertir grâce au numérique. Lafontaine
-          appelait ça une fable. Moi j'appelle ça une bonne interface.<br />Convaincu?
-          Alors construisons la vôtre ensemble.
+          passer le précepte avec lui."<br />À la croisée entre l'animation et
+          le code, ma mission est simple : instruire autant que divertir grâce
+          au numérique. Lafontaine appelait ça une fable. Moi j'appelle ça une
+          bonne interface.<br />Convaincu? Alors construisons la vôtre ensemble.
         </div>
       </header>
 
@@ -835,6 +850,14 @@
             </div>
 
             <div class="scat">
+              <div class="scat-lbl">// Méthodes</div>
+              <div class="tags">
+                <span class="tag">Agile</span>
+                <span class="tag">Scrum</span>
+              </div>
+            </div>
+
+            <div class="scat">
               <div class="scat-lbl">// Soft skills</div>
               <div class="tags">
                 <span class="tag">Pédagogue</span>
@@ -849,17 +872,13 @@
             <div class="s-title">FORMATIONS</div>
 
             <!-- ✏️ Formations -->
-             <div class="dip">
+            <div class="dip">
               <div class="dip-yr">2025 / 2027</div>
               <div class="dip-nm">Bachelor en Informatique MDS</div>
             </div>
             <div class="dip">
               <div class="dip-yr">2024 / 2025</div>
               <div class="dip-nm">L1 MIASHS</div>
-            </div>
-            <div class="dip">
-              <div class="dip-yr">2023</div>
-              <div class="dip-nm">BAFA</div>
             </div>
           </div>
 
@@ -873,10 +892,17 @@
                 <span>Anglais</span><span class="lpct">B1</span>
               </div>
             </div>
-            <div class="lang">
-              <div class="lang-row">
-                <span>Espagnol</span><span class="lpct">B1+</span>
-              </div>
+          </div>
+
+          <!-- CONTACT ÉCOLE -->
+          <div>
+            <div class="s-title">CONTACT ÉCOLE</div>
+
+            <!-- ✏️ Référente formation -->
+            <div class="dip">
+              <div class="dip-nm">Aurore Cavalière</div>
+              <div class="dip-mail">aurore.cavaliere@mydigitalschool.com</div>
+            </div>
           </div>
         </aside>
 
@@ -891,8 +917,8 @@
               <div class="pcard">
                 <div class="pname">Agitanim</div>
                 <div class="pdesc">
-                  Plateforme inclusive d'aide à l'animation. Sélection
-                  d'activités adaptées aux enfants en situation de handicap.
+                  Plateforme inclusive d'aide à l'animation avec activités
+                  adaptées pour tous.
                 </div>
                 <div class="ptags">
                   <span class="ptag">React</span>
@@ -903,23 +929,10 @@
               </div>
 
               <div class="pcard">
-                <div class="pname">Aby-Codex</div>
-                <div class="pdesc">
-                  Plateforme d'analyse philosophique et psychologique de personnages de la pop culture, basé sur
-                  l'horreur. 
-                </div>
-                <div class="ptags">
-                  <span class="ptag">React</span>
-                  <span class="ptag">SCSS</span>
-                  <span class="ptag">Typescript</span>
-                  <span class="ptag">Créatif</span>
-                </div>
-              </div>
-
-              <div class="pcard">
                 <div class="pname">Cronos</div>
                 <div class="pdesc">
-                  Application fictive d'Arte, mettant en avant l'histoire de manière plus engageante.
+                  Application fictive d'Arte, mettant en avant l'histoire de
+                  manière plus engageante.
                 </div>
                 <div class="ptags">
                   <span class="ptag">Next.js</span>
@@ -928,27 +941,39 @@
                   <span class="ptag">Persévérant</span>
                 </div>
               </div>
-
-              <div class="pcard">
-                <div class="pname">Game of Life</div>
-                <div class="pdesc">
-                  Implémentation du Jeu de la Vie de Conway. Automate cellulaire
-                  avec interface de vie en temps réel.
-                </div>
-                <div class="ptags">
-                  <span class="ptag">Java</span>
-                  <span class="ptag">SWING</span>
-                </div>
-              </div>
             </div>
           </section>
 
           <!-- EXPÉRIENCE -->
           <section>
-            <div class="m-title">EXPÉRIENCE</div>
+            <div class="m-title">EXPÉRIENCE & STAGE</div>
 
             <!-- ✏️ Expérience -->
             <div class="ecard" data-n="01">
+              <div class="ehead">
+                <div class="erole">Chef de projet & Développeur web</div>
+                <div class="eperiod">Mai 2026 — Juin 2026</div>
+              </div>
+              <div class="eco">Stage pour Récoltéo</div>
+              <ul class="bullets">
+                <li>
+                  Stage de 2 mois avec un autre développeur junior pour
+                  construire une plateforme de mise en relation entre
+                  associations et commerçants avec vues différenciées (Next.js,
+                  Tailwind, Supabase, Stripe)
+                </li>
+                <li>
+                  Rôle de chef de projet et formateur auprès d'un étudiant de
+                  première année, organisation agile (sprints, priorisation
+                  des tâches, co-gestion du planning)
+                </li>
+                <li>
+                  Plateforme fonctionnelle et déployée pour l'équipe cliente
+                </li>
+              </ul>
+            </div>
+
+            <div class="ecard" data-n="02">
               <div class="ehead">
                 <div class="erole">Animateur péri / extrascolaire</div>
                 <div class="eperiod">Août 2022 — Présent</div>
