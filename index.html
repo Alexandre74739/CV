@@ -1,802 +1,935 @@
 <!doctype html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CV · Alexandre-Philippe PEREZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,500;8..60,600&display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV · Alexandre-Philippe PEREZ</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap"
-    rel="stylesheet" />
-  <style>
-    :root {
-      --paper: #f7f1e6;
-      --paper-2: #f1e7d5;
-      --prune: #48283f;
-      --prune-2: #5c3852;
-      --ink: #221c19;
-      --ink-soft: #6b5f56;
-      --rose: #9e5252;
-      --rose-soft: #c98a8a;
-      --sand: #c6b092;
-      --hair: #ddcdb0;
-      --cream-soft: #e7dbc7;
+    <!-- ═══════════ Tailwind (CDN) — pour retoucher vite en classes utilitaires ═══════════ -->
+    <!-- CDN de dev : pratique pour itérer, à ne pas garder pour une vraie mise en prod. -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        // on garde le CSS écrit à la main : pas de reset Tailwind par-dessus
+        corePlugins: { preflight: false },
+        theme: {
+          extend: {
+            // mêmes couleurs que les variables CSS ci-dessous
+            colors: {
+              paper: "#f7f1e6",
+              "paper-2": "#f1e7d5",
+              card: "#fffdf5",
+              ink: "#2b2320",
+              "ink-soft": "#6f6157",
+              prune: "#5a3550",
+              "prune-line": "#b9a3b4",
+              rosewood: "#9e5252",
+              sand: "#d9c7ab",
+              cream: "#ebe2ce",
+              "cream-2": "#e4d6bd",
+              "pill-lilac": "#e3d3dd",
+            },
+            fontFamily: {
+              head: ['"Archivo Black"', "Arial", "Helvetica", "sans-serif"],
+              serif: [
+                '"Source Serif 4"',
+                "Georgia",
+                '"Times New Roman"',
+                "serif",
+              ],
+              body: [
+                '"Inter"',
+                "system-ui",
+                '"Segoe UI"',
+                "Arial",
+                "sans-serif",
+              ],
+            },
+            borderRadius: { sheet: "18px" },
+          },
+        },
+      };
+    </script>
 
-      --f-head: "Archivo Black", Arial, Helvetica, sans-serif;
-      --f-body: "Inter", system-ui, "Segoe UI", Arial, sans-serif;
+    <style>
+      /* ═══════════ DA fablioo.com — parchemin, prune, serif éditorial ═══════════ */
+      :root {
+        --paper: #f7f1e6;
+        --paper-2: #f1e7d5;
+        --card: #fffdf5;
+        --ink: #2b2320;
+        --ink-soft: #6f6157;
+        --prune: #5a3550;
+        --prune-line: #b9a3b4;
+        --rosewood: #9e5252;
+        --sand: #d9c7ab;
+        --cream: #ebe2ce;
+        --cream-2: #e4d6bd;
+        --pill-lilac: #e3d3dd;
 
-      --t-body: 10pt;
-      --t-label: 9.3pt;
-      --t-name: 12.5pt;
-      --t-objet: 24pt;
-      --t-card: 12.5pt;
-      --t-meta: 8.7pt;
+        --f-head: "Archivo Black", Arial, Helvetica, sans-serif;
+        --f-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
+        --f-body: "Inter", system-ui, "Segoe UI", Arial, sans-serif;
 
-      --px: 15mm;
-      --gutter: 10mm;
-      --railw: 70mm;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      background: #ded2b6;
-      font-family: var(--f-body);
-      color: var(--ink);
-      display: flex;
-      justify-content: center;
-      align-items: flex-start;
-      min-height: 100vh;
-      padding: 2.5rem 1rem;
-      -webkit-font-smoothing: antialiased;
-      text-rendering: optimizeLegibility;
-    }
-
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-
-    .page {
-      width: 210mm;
-      min-height: 297mm;
-      background: var(--paper);
-      display: flex;
-      flex-direction: column;
-      box-shadow: 0 16px 50px rgba(34, 28, 25, 0.26);
-    }
-
-    .ic {
-      width: 1em;
-      height: 1em;
-      flex-shrink: 0;
-      fill: none;
-      stroke: currentColor;
-      stroke-width: 2;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
-
-    .ic--fill {
-      fill: currentColor;
-      stroke: none;
-    }
-
-    /* ═══════════ BANNER (prune) ═══════════ */
-    .banner {
-      background: var(--prune);
-      color: var(--paper);
-      padding: 7mm var(--px) 6mm;
-      display: flex;
-      flex-direction: column;
-      gap: 3.6mm;
-    }
-
-    .banner-top {
-      display: grid;
-      grid-template-columns: 1fr auto;
-      gap: 10mm;
-      align-items: start;
-    }
-
-    .objet {
-      font-family: var(--f-head);
-      font-size: var(--t-objet);
-      line-height: 1.02;
-      letter-spacing: -0.02em;
-    }
-
-    .objet .accent {
-      color: var(--sand);
-      text-decoration: underline;
-      text-decoration-color: var(--rose);
-      text-decoration-thickness: 3px;
-      text-underline-offset: 3px;
-    }
-
-    .name {
-      margin-top: 3mm;
-      font-weight: 700;
-      font-size: var(--t-name);
-      letter-spacing: 0.01em;
-    }
-
-    .tagline {
-      margin-top: 1.3mm;
-      display: flex;
-      align-items: center;
-      gap: 2.4mm;
-      font-size: var(--t-meta);
-      letter-spacing: 0.03em;
-      color: var(--sand);
-    }
-
-    .tagline::before {
-      content: "";
-      width: 14mm;
-      height: 2px;
-      background: var(--rose);
-      flex-shrink: 0;
-    }
-
-    .qr-block {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2mm;
-      text-align: center;
-    }
-
-    .qr {
-      width: 108px;
-      height: 108px;
-      background: #fff;
-      padding: 7px;
-      border-radius: 7px;
-      image-rendering: pixelated;
-    }
-
-    .qr-cap {
-      font-size: 7.2pt;
-      letter-spacing: 0.16em;
-      text-transform: uppercase;
-      color: var(--sand);
-      line-height: 1.6;
-    }
-
-    .qr-cap b {
-      display: block;
-      font-weight: 600;
-      letter-spacing: 0.04em;
-      color: var(--cream-soft);
-    }
-
-    .pitch {
-      max-width: 92ch;
-      font-size: var(--t-body);
-      line-height: 1.5;
-      color: var(--cream-soft);
-    }
-
-    .pitch a {
-      color: #fff;
-      font-weight: 600;
-      border-bottom: 1px solid rgba(247, 241, 230, 0.45);
-    }
-
-    .contact {
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 2.4mm 6mm;
-      padding-top: 3mm;
-      border-top: 1px solid rgba(247, 241, 230, 0.22);
-      font-size: var(--t-meta);
-      color: var(--cream-soft);
-    }
-
-    .contact li {
-      flex: 0 0 auto;
-      width: calc(50% - 3mm);
-      display: flex;
-      align-items: center;
-      gap: 2.4mm;
-    }
-
-    .contact .ic {
-      font-size: 11.5pt;
-      color: var(--sand);
-    }
-
-    /* ═══════════ BODY ═══════════ */
-    .body {
-      flex: 1;
-      display: grid;
-      grid-template-columns: var(--railw) 1fr;
-    }
-
-    .rail {
-      padding: 5mm var(--gutter) 6mm var(--px);
-      display: flex;
-      flex-direction: column;
-      gap: 3.8mm;
-      background: var(--paper-2);
-      border-right: 1px solid var(--hair);
-    }
-
-    .main {
-      padding: 5mm var(--px) 6mm var(--gutter);
-      display: flex;
-      flex-direction: column;
-      gap: 3.4mm;
-    }
-
-    .blk>h2 {
-      display: flex;
-      align-items: center;
-      gap: 2.4mm;
-      font-weight: 700;
-      font-size: var(--t-label);
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--rose);
-      padding-bottom: 1.2mm;
-      margin-bottom: 1.9mm;
-      border-bottom: 1.5px solid var(--hair);
-    }
-
-    .blk>h2 .ic {
-      font-size: 12.5pt;
-    }
-
-    /* skills */
-    .sk+.sk {
-      margin-top: 1.8mm;
-    }
-
-    .sk h3 {
-      display: flex;
-      align-items: baseline;
-      gap: 2mm;
-      font-weight: 700;
-      font-size: var(--t-meta);
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 1mm;
-    }
-
-    .sk h3::before {
-      content: "";
-      width: 4mm;
-      height: 1.6px;
-      background: var(--rose);
-      flex-shrink: 0;
-      align-self: center;
-    }
-
-    .tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1.5mm;
-    }
-
-    .tag {
-      font-size: 8.7pt;
-      line-height: 1.35;
-      padding: 0.7mm 2.4mm;
-      border-radius: 999px;
-      background: var(--paper);
-      border: 1px solid var(--sand);
-      color: var(--ink);
-    }
-
-    /* timeline (formations + jobs share it) */
-    .track {
-      position: relative;
-      padding-left: 6mm;
-    }
-
-    .track::before {
-      content: "";
-      position: absolute;
-      left: 1.4mm;
-      top: 1.6mm;
-      bottom: 1.6mm;
-      width: 1.5px;
-      background: var(--hair);
-    }
-
-    .track>* {
-      position: relative;
-    }
-
-    .track>*::before {
-      content: "";
-      position: absolute;
-      left: calc(-6mm + 1.4mm);
-      top: 1.4mm;
-      width: 7px;
-      height: 7px;
-      margin-left: -2.75px;
-      border-radius: 50%;
-      background: var(--paper);
-      border: 2px solid var(--rose);
-      box-sizing: border-box;
-    }
-
-    .rail .track>*::before {
-      background: var(--paper-2);
-    }
-
-    /* simple lines (formations / langues / contact) */
-    .ln {
-      font-size: var(--t-body);
-      line-height: 1.37;
-      color: var(--ink);
-    }
-
-    .ln+.ln {
-      margin-top: 2.4mm;
-    }
-
-    .ln .yr {
-      display: block;
-      font-weight: 700;
-      font-size: var(--t-meta);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: var(--rose);
-      margin-bottom: 0.6mm;
-    }
-
-    .ln a {
-      color: var(--rose);
-      word-break: break-word;
-    }
-
-    /* languages */
-    .lang {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      gap: 3mm;
-      font-size: var(--t-body);
-      color: var(--ink);
-    }
-
-    .lang .lvl {
-      font-weight: 700;
-      color: var(--rose);
-    }
-
-    /* experience / projects */
-    .job+.job {
-      margin-top: 2.6mm;
-    }
-
-    .job-h {
-      display: flex;
-      justify-content: space-between;
-      align-items: baseline;
-      flex-wrap: wrap;
-      gap: 1.5mm 4mm;
-    }
-
-    .job-h h3 {
-      font-family: var(--f-head);
-      font-weight: 400;
-      font-size: var(--t-card);
-      color: var(--ink);
-      letter-spacing: -0.01em;
-    }
-
-    .per {
-      flex-shrink: 0;
-      align-self: center;
-      margin-left: auto;
-      font-weight: 700;
-      font-size: var(--t-meta);
-      letter-spacing: 0.05em;
-      text-transform: uppercase;
-      color: #fff;
-      background: var(--rose);
-      padding: 0.6mm 2mm;
-      border-radius: 3px;
-      white-space: nowrap;
-    }
-
-    .job-d {
-      font-size: var(--t-body);
-      line-height: 1.37;
-      color: var(--ink);
-      margin: 1mm 0 1.4mm;
-    }
-
-    .job-d b {
-      font-weight: 600;
-      color: var(--rose);
-    }
-
-    .job ul {
-      list-style: none;
-      display: flex;
-      flex-direction: column;
-      gap: 1.1mm;
-    }
-
-    .job li {
-      font-size: var(--t-body);
-      line-height: 1.37;
-      color: var(--ink);
-      padding-left: 5mm;
-      position: relative;
-    }
-
-    .job li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.6em;
-      width: 2.6mm;
-      height: 1.4px;
-      background: var(--rose);
-    }
-
-    .job li b {
-      font-weight: 600;
-      color: var(--rose);
-    }
-
-    /* ═══════════ FOOTER ═══════════ */
-    .foot {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 2.4mm var(--px);
-      font-size: var(--t-meta);
-      letter-spacing: 0.02em;
-      color: var(--ink-soft);
-      background: var(--prune);
-    }
-
-    .foot a,
-    .foot span {
-      color: var(--cream-soft);
-    }
-
-    .foot a {
-      font-weight: 600;
-      display: inline-flex;
-      align-items: center;
-      gap: 2mm;
-    }
-
-    .foot .ic {
-      font-size: 10pt;
-      color: var(--sand);
-    }
-
-    @media print {
-      @page {
-        size: 210mm 297mm;
-        margin: 0;
+        --bd: 1.5px solid var(--prune);
+        --radius: 18px;
       }
 
       * {
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
       }
 
       body {
-        background: none;
-        padding: 0;
+        background: #e7dcc4;
+        font-family: var(--f-body);
+        color: var(--ink);
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        min-height: 100vh;
+        padding: 2.5rem 1rem;
+        -webkit-font-smoothing: antialiased;
+        text-rendering: optimizeLegibility;
       }
 
-      .page {
-        box-shadow: none;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      .sheet {
+        position: relative;
         width: 210mm;
-        min-height: auto;
+        min-height: 297mm;
+        background: var(--paper);
+        padding: 8mm 8.5mm 8mm;
+        overflow: hidden;
+        box-shadow: 0 16px 48px rgba(74, 43, 63, 0.2);
       }
-    }
-  </style>
-</head>
 
-<body>
-  <!-- icon sprite -->
-  <svg width="0" height="0" style="position: absolute" aria-hidden="true">
-    <defs>
-      <symbol id="i-mail" viewBox="0 0 24 24">
-        <rect x="3" y="5" width="18" height="14" rx="2" />
-        <path d="m4 7 8 6 8-6" />
-      </symbol>
-      <symbol id="i-phone" viewBox="0 0 24 24">
-        <path
-          d="M22 16.9v2.6a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 19 19 0 0 1-5.7-5.7 19 19 0 0 1-3-8.4A2 2 0 0 1 6.6 4h2.6a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L10.3 14a16 16 0 0 0 5.7 5.7l1.4-1.1a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z" />
-      </symbol>
-      <symbol id="i-github" viewBox="0 0 24 24">
-        <path class="ic--fill"
-          d="M12 1.3A10.7 10.7 0 0 0 8.6 22c.5.1.7-.2.7-.5v-1.9c-3 .6-3.6-1.4-3.6-1.4-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.3.9.1-.7.4-1.2.7-1.5-2.4-.3-5-1.2-5-5.4 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.1-5 5.4.4.3.8 1 .8 2.1v3.1c0 .3.2.6.7.5A10.7 10.7 0 0 0 12 1.3z" />
-      </symbol>
-      <symbol id="i-linkedin" viewBox="0 0 24 24">
-        <path class="ic--fill"
-          d="M4.5 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.2 9h2.6v12H3.2zM9 9h2.5v1.7h.1c.4-.8 1.5-1.9 3.4-1.9 3 0 3.9 1.9 3.9 4.9V21h-2.6v-5.7c0-1.4 0-3.2-2-3.2s-2.2 1.5-2.2 3.1V21H9z" />
-      </symbol>
-      <symbol id="i-spark" viewBox="0 0 24 24">
-        <path d="M12 3v18M4.5 6l15 12M19.5 6l-15 12" />
-      </symbol>
-      <symbol id="i-cap" viewBox="0 0 24 24">
-        <path d="M12 4 2 9l10 5 10-5-10-5z" />
-        <path d="M5 11.2V16c0 1.5 3.1 3 7 3s7-1.5 7-3v-4.8" />
-      </symbol>
-      <symbol id="i-globe" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="9" />
-        <path d="M3 12h18M12 3c2.7 2.8 2.7 15.2 0 18M12 3c-2.7 2.8-2.7 15.2 0 18" />
-      </symbol>
-      <symbol id="i-at" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="4" />
-        <path d="M16 8v5a2.5 2.5 0 0 0 5 0v-1a9 9 0 1 0-3.5 7.1" />
-      </symbol>
-      <symbol id="i-bag" viewBox="0 0 24 24">
-        <rect x="3" y="7" width="18" height="13" rx="2" />
-        <path d="M8 7V5.5A2.5 2.5 0 0 1 10.5 3h3A2.5 2.5 0 0 1 16 5.5V7M3 13h18" />
-      </symbol>
-      <symbol id="i-layers" viewBox="0 0 24 24">
-        <path d="M12 3 3 8l9 5 9-5-9-5zM3 13l9 5 9-5M3 17.5l9 5 9-5" />
-      </symbol>
-      <symbol id="i-link" viewBox="0 0 24 24">
-        <path d="M10 14a4 4 0 0 0 6 .5l3-3A4 4 0 0 0 13 6l-1.5 1.5" />
-        <path d="M14 10a4 4 0 0 0-6-.5l-3 3A4 4 0 0 0 11 18l1.5-1.5" />
-      </symbol>
-    </defs>
-  </svg>
+      /* fond : léger dégradé prune pour donner de la profondeur au parchemin */
+      .sheet::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        pointer-events: none;
+        background:
+          radial-gradient(
+            135% 75% at 50% -15%,
+            rgba(90, 53, 80, 0.05),
+            transparent 62%
+          ),
+          radial-gradient(
+            85% 55% at 112% 112%,
+            rgba(90, 53, 80, 0.07),
+            transparent 55%
+          );
+      }
 
-  <div class="page">
-    <!-- BANNER -->
-    <header class="banner">
-      <div class="banner-top">
-        <div class="banner-id">
-          <h1 class="objet">
-            Développeur web<br /><span class="accent">front-end</span>
-          </h1>
-          <div class="name">Alexandre-Philippe Perez</div>
-          <div class="tagline">
-            Alternance · 1 sem. école / 2 en entreprise · Grenoble et alentours
+      .wrap {
+        position: relative;
+        z-index: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 12mm;
+      }
+
+      /* ═══════════ DÉCORS (filigrane + parchemin) ═══════════ */
+      /* filigrane : logo Fablioo, très pâle, en fond bas-droite */
+      .wm {
+        position: absolute;
+        z-index: 0;
+        right: -32mm;
+        bottom: -24mm;
+        width: 150mm;
+        opacity: 0.055;
+        transform: rotate(-8deg);
+        pointer-events: none;
+      }
+
+      /* halo pastel derrière l'étoile d'en-tête (rappel du rond du QR) */
+      .deco--halo {
+        right: -5mm;
+        top: -6mm;
+        width: 30mm;
+        height: 30mm;
+        border-radius: 50%;
+        background: var(--cream);
+        z-index: 0;
+      }
+
+      /* petits décors de marge, rognés par overflow:hidden de .sheet */
+      .deco--dots {
+        right: 1.5mm;
+        top: 118mm;
+        width: 5.6mm;
+        z-index: 0;
+      }
+
+      .deco--wave {
+        left: -9mm;
+        top: 168mm;
+        width: 26mm;
+        z-index: 0;
+      }
+
+      .deco--star-sm {
+        left: -4mm;
+        bottom: -4mm;
+        width: 15mm;
+        z-index: 0;
+      }
+
+      .deco--ring {
+        left: -14mm;
+        top: 78mm;
+        width: 28mm;
+        height: 28mm;
+        border-radius: 50%;
+        border: 1.6px solid var(--prune-line);
+        z-index: 0;
+      }
+
+      /* ═══════════ EN-TÊTE (compo façon modèle) ═══════════ */
+      .top {
+        position: relative;
+        display: grid;
+        grid-template-columns: 46mm 1fr;
+        gap: 10mm;
+        align-items: start;
+        padding-top: 2mm;
+        padding-bottom: 0;
+      }
+
+      /* rond pastel derrière le QR */
+      .top::before {
+        content: "";
+        position: absolute;
+        left: -3mm;
+        top: -2mm;
+        width: 50mm;
+        height: 50mm;
+        border-radius: 50%;
+        background: var(--cream);
+        z-index: 0;
+      }
+
+      .deco {
+        position: absolute;
+        z-index: 1;
+        pointer-events: none;
+      }
+
+      .deco--star {
+        right: 0;
+        top: 1mm;
+        width: 18mm;
+      }
+
+      .id-media {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .qr-card {
+        width: 46mm;
+        height: 46mm;
+        background: var(--card);
+        border: var(--bd);
+        border-radius: 16px;
+        padding: 3mm;
+      }
+
+      .qr-card svg {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+
+      /* badges qui chevauchent le QR, comme le modèle */
+      .badge {
+        position: absolute;
+        z-index: 3;
+        font-family: var(--f-body);
+        font-size: 8pt;
+        font-weight: 600;
+        line-height: 1.15;
+        padding: 1.5mm 3mm;
+        background: var(--rosewood);
+        border: var(--bd);
+        border-radius: 999px;
+        color: var(--paper);
+        white-space: nowrap;
+        box-shadow: 2px 3px 0 var(--ink);
+      }
+
+      .badge--2 {
+        bottom: -4mm;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .id-text {
+        position: relative;
+        z-index: 2;
+        padding-top: 0;
+      }
+
+      /* nom : ligne secondaire, petite */
+      .name {
+        position: relative;
+        z-index: 2;
+        font-family: var(--f-body);
+        font-weight: 900;
+        font-size: 16px;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+        margin-bottom: -8px;
+      }
+
+      .name .fn {
+        color: var(--rosewood);
+      }
+
+      .name .ln {
+        color: var(--rosewood);
+      }
+
+      /* poste recherché : titre principal, grand */
+      .role {
+        position: relative;
+        z-index: 2;
+        margin-top: 4mm;
+        font-family: var(--f-head);
+        font-size: 32px;
+        line-height: 1.04;
+        letter-spacing: -0.01em;
+        text-transform: uppercase;
+        color: var(--ink);
+      }
+
+      .role .accent {
+        color: var(--prune);
+      }
+
+      .intro {
+        margin-top: 12px;
+        max-width: 99%;
+        font-family: var(--f-serif);
+        font-size: 14px;
+        line-height: 1.5;
+        color: var(--ink);
+      }
+
+      .intro a {
+        font-weight: 600;
+        color: var(--prune);
+        border-bottom: 1px solid var(--prune-line);
+      }
+
+      /* ═══════════ COLONNES ═══════════ */
+      .cols {
+        display: grid;
+        grid-template-columns: 62mm 1fr;
+        gap: 6mm;
+        align-items: stretch;
+      }
+
+      .col {
+        display: flex;
+        flex-direction: column;
+        gap: 7mm;
+        justify-content: flex-start;
+      }
+
+      /* la dernière carte s'étire pour que les deux colonnes finissent
+         à la même hauteur */
+      .col > .card:last-child {
+        flex: 1 0 auto;
+      }
+
+      .qr-card {
+        box-shadow: 4px 5px 0 var(--ink);
+      }
+
+      .card {
+        position: relative;
+        background: var(--card);
+        border: var(--bd);
+        border-radius: var(--radius);
+        padding: 5mm 5mm 4.5mm;
+        box-shadow: 4px 5px 0 var(--ink);
+      }
+
+      .card > .pill {
+        position: absolute;
+        top: -4.8mm;
+        left: 4mm;
+        font-family: var(--f-head);
+        font-size: 10.5pt;
+        letter-spacing: 0.02em;
+        padding: 1.4mm 3.6mm;
+        background: var(--rosewood);
+        border: var(--bd);
+        border-radius: 999px;
+        color: var(--paper);
+        box-shadow: 2px 3px 0 var(--ink);
+      }
+
+      .card.has-pill {
+        padding-top: 6.5mm;
+      }
+
+      /* ---------- contact ---------- */
+      .contact {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 3mm;
+        font-size: 8.9pt;
+      }
+
+      .contact li {
+        display: flex;
+        align-items: center;
+        gap: 2.6mm;
+      }
+
+      .contact li.contact-ref {
+        align-items: flex-start;
+        line-height: 1.4;
+      }
+
+      .contact li.contact-ref b {
+        font-weight: 700;
+        color: var(--prune);
+      }
+
+      .contact li.contact-ref a {
+        word-break: break-all;
+      }
+
+      .ic {
+        width: 4.6mm;
+        height: 4.6mm;
+        flex-shrink: 0;
+        fill: none;
+        stroke: var(--prune);
+        stroke-width: 1.9;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+      }
+
+      .ic--fill {
+        fill: var(--prune);
+        stroke: none;
+      }
+
+      /* ---------- blocs compétences ---------- */
+      .sub {
+        font-family: var(--f-head);
+        font-size: 8.2pt;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--prune);
+        margin-bottom: 1.6mm;
+      }
+
+      .grp + .grp {
+        margin-top: 3mm;
+      }
+
+      .tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.5mm;
+      }
+
+      .tag {
+        font-size: 8.8pt;
+        font-weight: 600;
+        line-height: 1.3;
+        padding: 0.9mm 2.6mm;
+        border: 1px solid var(--prune-line);
+        border-radius: 999px;
+        background: var(--paper-2);
+        color: var(--prune);
+      }
+
+      .lines {
+        font-size: 9.3pt;
+        line-height: 1.5;
+      }
+
+      .lines b {
+        font-weight: 700;
+      }
+
+      .rule {
+        border: none;
+        border-top: 1.5px solid var(--prune-line);
+        margin: 2.8mm 0;
+      }
+
+      /* ---------- formation / expérience / projets ---------- */
+      .item + .item {
+        margin-top: 0;
+      }
+
+      .item-sep {
+        border: none;
+        border-top: 1.5px solid var(--prune-line);
+        margin: 3mm 0;
+      }
+
+      .item-h {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+        gap: 3mm;
+      }
+
+      .item-h h3 {
+        font-family: var(--f-head);
+        font-size: 9.9pt;
+        letter-spacing: 0.01em;
+        text-transform: uppercase;
+        color: var(--prune);
+      }
+
+      .item-h .date {
+        flex-shrink: 0;
+        font-size: 8.8pt;
+        font-weight: 700;
+        color: var(--rosewood);
+        white-space: nowrap;
+      }
+
+      .item .org {
+        margin-top: 0.6mm;
+        font-size: 8.9pt;
+        font-weight: 600;
+        color: var(--ink-soft);
+      }
+
+      .item .desc {
+        margin-top: 1.7mm;
+        font-size: 9pt;
+        line-height: 1.45;
+        color: var(--ink);
+      }
+
+      .item .desc a {
+        font-weight: 600;
+        color: var(--prune);
+        border-bottom: 1px solid var(--prune-line);
+        word-break: break-all;
+      }
+
+      .item .desc b {
+        font-weight: 700;
+        color: var(--prune);
+      }
+
+      /* ---------- puces de détail (expérience / projets) ---------- */
+      .item ul {
+        list-style: none;
+        margin-top: 1.6mm;
+        display: flex;
+        flex-direction: column;
+        gap: 1.2mm;
+      }
+
+      .item li {
+        position: relative;
+        padding-left: 4.6mm;
+        font-size: 9pt;
+        line-height: 1.4;
+        color: var(--ink);
+      }
+
+      .item li::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0.62em;
+        width: 2.4mm;
+        height: 1.6px;
+        background: var(--rosewood);
+      }
+
+      .item li b {
+        font-weight: 700;
+        color: var(--prune);
+      }
+
+      @media print {
+        @page {
+          size: 210mm 297mm;
+          margin: 0;
+        }
+
+        * {
+          -webkit-print-color-adjust: exact;
+          print-color-adjust: exact;
+        }
+
+        body {
+          background: none;
+          padding: 0;
+        }
+
+        .sheet {
+          box-shadow: none;
+          min-height: 297mm;
+        }
+
+        /* filet de sécurité : garantit une seule page A4 même si le contenu
+           dépasse de quelques millimètres */
+        .wrap {
+          zoom: 0.95;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <!-- sprite icônes -->
+    <svg width="0" height="0" style="position: absolute" aria-hidden="true">
+      <defs>
+        <symbol id="i-pin" viewBox="0 0 24 24">
+          <path d="M12 21s7-6.3 7-11a7 7 0 0 0-14 0c0 4.7 7 11 7 11z" />
+          <circle cx="12" cy="10" r="2.6" />
+        </symbol>
+        <symbol id="i-mail" viewBox="0 0 24 24">
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="m4 7 8 6 8-6" />
+        </symbol>
+        <symbol id="i-phone" viewBox="0 0 24 24">
+          <path
+            d="M22 16.9v2.6a2 2 0 0 1-2.2 2 19 19 0 0 1-8.3-3 19 19 0 0 1-5.7-5.7 19 19 0 0 1-3-8.4A2 2 0 0 1 6.6 4h2.6a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L10.3 14a16 16 0 0 0 5.7 5.7l1.4-1.1a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"
+          />
+        </symbol>
+        <symbol id="i-globe" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="9" />
+          <path
+            d="M3 12h18M12 3c2.7 2.8 2.7 15.2 0 18M12 3c-2.7 2.8-2.7 15.2 0 18"
+          />
+        </symbol>
+        <symbol id="i-github" viewBox="0 0 24 24">
+          <path
+            class="ic--fill"
+            d="M12 1.3A10.7 10.7 0 0 0 8.6 22c.5.1.7-.2.7-.5v-1.9c-3 .6-3.6-1.4-3.6-1.4-.5-1.3-1.2-1.6-1.2-1.6-1-.7.1-.7.1-.7 1.1.1 1.7 1.2 1.7 1.2 1 1.7 2.6 1.2 3.3.9.1-.7.4-1.2.7-1.5-2.4-.3-5-1.2-5-5.4 0-1.2.4-2.2 1.1-3-.1-.3-.5-1.4.1-2.9 0 0 .9-.3 3 1.1a10.3 10.3 0 0 1 5.5 0c2.1-1.4 3-1.1 3-1.1.6 1.5.2 2.6.1 2.9.7.8 1.1 1.8 1.1 3 0 4.2-2.6 5.1-5 5.4.4.3.8 1 .8 2.1v3.1c0 .3.2.6.7.5A10.7 10.7 0 0 0 12 1.3z"
+          />
+        </symbol>
+        <symbol id="i-linkedin" viewBox="0 0 24 24">
+          <path
+            class="ic--fill"
+            d="M4.5 3.5a2 2 0 1 0 0 4 2 2 0 0 0 0-4zM3.2 9h2.6v12H3.2zM9 9h2.5v1.7h.1c.4-.8 1.5-1.9 3.4-1.9 3 0 3.9 1.9 3.9 4.9V21h-2.6v-5.7c0-1.4 0-3.2-2-3.2s-2.2 1.5-2.2 3.1V21H9z"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
+    <main class="sheet">
+      <div class="wrap">
+        <!-- EN-TÊTE -->
+        <header class="top">
+          <svg class="deco deco--star" viewBox="0 0 60 60" aria-hidden="true">
+            <path
+              d="M30 2 C32.5 18 30 21 44 16.5 C33 24 33 27 46.5 34 C33 32 31 34 33.5 49 C27 36 25 36 14.5 45.5 C22.5 33 20.5 31 4.5 33 C20 29 21 26 14 15 C26.5 22.5 27.5 20 30 2 Z"
+              fill="#9e5252"
+              stroke="#2b2320"
+              stroke-width="1.3"
+              stroke-linejoin="round"
+            />
+          </svg>
+
+          <div class="id-media">
+            <div class="qr-card">
+              <svg
+                viewBox="-2 -2 33 33"
+                shape-rendering="crispEdges"
+                role="img"
+                aria-label="QR vers fablioo.com"
+              >
+                <rect x="-2" y="-2" width="33" height="33" fill="#fffdf8" />
+                <path
+                  fill="#2b2320"
+                  d="M0 0h7v1h-7zM8 0h2v1h-2zM11 0h4v1h-4zM16 0h1v1h-1zM20 0h1v1h-1zM22 0h7v1h-7zM0 1h1v1h-1zM6 1h1v1h-1zM8 1h1v1h-1zM10 1h1v1h-1zM13 1h1v1h-1zM16 1h1v1h-1zM20 1h1v1h-1zM22 1h1v1h-1zM28 1h1v1h-1zM0 2h1v1h-1zM2 2h3v1h-3zM6 2h1v1h-1zM9 2h2v1h-2zM12 2h2v1h-2zM17 2h2v1h-2zM22 2h1v1h-1zM24 2h3v1h-3zM28 2h1v1h-1zM0 3h1v1h-1zM2 3h3v1h-3zM6 3h1v1h-1zM8 3h1v1h-1zM16 3h1v1h-1zM18 3h2v1h-2zM22 3h1v1h-1zM24 3h3v1h-3zM28 3h1v1h-1zM0 4h1v1h-1zM2 4h3v1h-3zM6 4h1v1h-1zM8 4h1v1h-1zM12 4h7v1h-7zM22 4h1v1h-1zM24 4h3v1h-3zM28 4h1v1h-1zM0 5h1v1h-1zM6 5h1v1h-1zM8 5h1v1h-1zM11 5h1v1h-1zM14 5h6v1h-6zM22 5h1v1h-1zM28 5h1v1h-1zM0 6h7v1h-7zM8 6h1v1h-1zM10 6h1v1h-1zM12 6h1v1h-1zM14 6h1v1h-1zM16 6h1v1h-1zM18 6h1v1h-1zM20 6h1v1h-1zM22 6h7v1h-7zM10 7h1v1h-1zM16 7h1v1h-1zM3 8h1v1h-1zM6 8h1v1h-1zM9 8h2v1h-2zM13 8h1v1h-1zM15 8h3v1h-3zM23 8h3v1h-3zM27 8h2v1h-2zM1 9h4v1h-4zM9 9h1v1h-1zM12 9h1v1h-1zM14 9h1v1h-1zM17 9h1v1h-1zM19 9h4v1h-4zM26 9h1v1h-1zM28 9h1v1h-1zM0 10h1v1h-1zM2 10h3v1h-3zM6 10h5v1h-5zM13 10h2v1h-2zM20 10h1v1h-1zM22 10h2v1h-2zM27 10h1v1h-1zM0 11h1v1h-1zM3 11h1v1h-1zM5 11h1v1h-1zM7 11h1v1h-1zM9 11h1v1h-1zM12 11h2v1h-2zM15 11h3v1h-3zM21 11h4v1h-4zM26 11h2v1h-2zM0 12h1v1h-1zM2 12h2v1h-2zM5 12h2v1h-2zM8 12h2v1h-2zM11 12h1v1h-1zM13 12h2v1h-2zM17 12h1v1h-1zM19 12h2v1h-2zM22 12h2v1h-2zM0 13h1v1h-1zM2 13h4v1h-4zM8 13h1v1h-1zM12 13h1v1h-1zM15 13h1v1h-1zM17 13h1v1h-1zM19 13h3v1h-3zM23 13h1v1h-1zM25 13h1v1h-1zM27 13h1v1h-1zM2 14h1v1h-1zM4 14h1v1h-1zM6 14h2v1h-2zM10 14h2v1h-2zM13 14h2v1h-2zM16 14h1v1h-1zM18 14h1v1h-1zM21 14h1v1h-1zM27 14h2v1h-2zM0 15h2v1h-2zM3 15h1v1h-1zM9 15h2v1h-2zM12 15h1v1h-1zM17 15h2v1h-2zM20 15h1v1h-1zM23 15h1v1h-1zM1 16h1v1h-1zM3 16h1v1h-1zM6 16h4v1h-4zM11 16h1v1h-1zM13 16h1v1h-1zM17 16h3v1h-3zM28 16h1v1h-1zM1 17h5v1h-5zM7 17h1v1h-1zM9 17h1v1h-1zM11 17h3v1h-3zM17 17h1v1h-1zM19 17h3v1h-3zM23 17h1v1h-1zM27 17h2v1h-2zM0 18h1v1h-1zM5 18h3v1h-3zM14 18h1v1h-1zM16 18h1v1h-1zM21 18h1v1h-1zM23 18h1v1h-1zM25 18h1v1h-1zM27 18h2v1h-2zM2 19h1v1h-1zM4 19h2v1h-2zM8 19h3v1h-3zM13 19h1v1h-1zM15 19h4v1h-4zM23 19h1v1h-1zM0 20h1v1h-1zM2 20h7v1h-7zM14 20h1v1h-1zM16 20h1v1h-1zM18 20h1v1h-1zM20 20h5v1h-5zM26 20h1v1h-1zM28 20h1v1h-1zM8 21h1v1h-1zM13 21h2v1h-2zM16 21h1v1h-1zM18 21h3v1h-3zM24 21h1v1h-1zM27 21h2v1h-2zM0 22h7v1h-7zM10 22h1v1h-1zM12 22h1v1h-1zM15 22h1v1h-1zM17 22h2v1h-2zM20 22h1v1h-1zM22 22h1v1h-1zM24 22h4v1h-4zM0 23h1v1h-1zM6 23h1v1h-1zM11 23h1v1h-1zM15 23h2v1h-2zM20 23h1v1h-1zM24 23h1v1h-1zM26 23h2v1h-2zM0 24h1v1h-1zM2 24h3v1h-3zM6 24h1v1h-1zM9 24h1v1h-1zM12 24h1v1h-1zM14 24h3v1h-3zM18 24h1v1h-1zM20 24h6v1h-6zM27 24h1v1h-1zM0 25h1v1h-1zM2 25h3v1h-3zM6 25h1v1h-1zM8 25h1v1h-1zM11 25h5v1h-5zM19 25h4v1h-4zM24 25h3v1h-3zM28 25h1v1h-1zM0 26h1v1h-1zM2 26h3v1h-3zM6 26h1v1h-1zM15 26h1v1h-1zM17 26h1v1h-1zM19 26h2v1h-2zM24 26h1v1h-1zM26 26h1v1h-1zM28 26h1v1h-1zM0 27h1v1h-1zM6 27h1v1h-1zM10 27h1v1h-1zM14 27h3v1h-3zM18 27h2v1h-2zM22 27h2v1h-2zM27 27h1v1h-1zM0 28h7v1h-7zM13 28h2v1h-2zM16 28h1v1h-1zM22 28h1v1h-1zM24 28h2v1h-2zM27 28h1v1h-1z"
+                />
+                <circle cx="14.5" cy="14.5" r="4.6" fill="#fffdf8" />
+                <image
+                  x="10.4"
+                  y="11.1"
+                  width="8.2"
+                  height="6.7"
+                  href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAzIiBoZWlnaHQ9Ijg0IiB2aWV3Qm94PSIwIDAgMTAzIDg0IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgo8cGF0aCBkPSJNNjcuODMzMyAyLjVDNzAuOTk2NSAyLjUgNzQuNTg5OCAzLjc1ODc4IDc4LjMwNiA2LjA5Mjc3QzgxLjk5OTggOC40MTI2NyA4NS42NTQ4IDExLjY5NjQgODguODkxOSAxNS40ODQ0Qzk1LjQ1NTMgMjMuMTY0NyA5OS44NjA3IDMyLjM3ODEgOTkuODYwNyAzOS4xMTEzQzk5Ljg2MDYgNDIuMzIxIDk4Ljg2MjEgNDQuNTkwMyA5Ny4yNzI4IDQ2LjI5NjlDOTUuNjI3NCA0OC4wNjM1IDkzLjE4NjEgNDkuMzk3NiA5MC4wNTcgNTAuMzYxM0M4My43Mzk1IDUyLjMwNyA3NS40ODIzIDUyLjUgNjcuODMzMyA1Mi41QzU0LjAyNjIgNTIuNSA0Mi44MzMzIDQxLjMwNzEgNDIuODMzMyAyNy41QzQyLjgzMzMgMTMuNjkyOSA1NC4wMjYyIDIuNSA2Ny44MzMzIDIuNVoiIGZpbGw9IiM1QTM1NTAiIHN0cm9rZT0iI0Y3RjFFNiIgc3Ryb2tlLXdpZHRoPSI1Ii8+CjxjaXJjbGUgY3g9IjY3LjgzMzMiIGN5PSIyNy41IiByPSIxNy4xMTExIiBmaWxsPSIjRjdGMUU2Ii8+CjxlbGxpcHNlIGN4PSI2OS41IiBjeT0iMjgiIHJ4PSI0LjUiIHJ5PSI2IiBmaWxsPSIjNUEzNTUwIi8+CjxwYXRoIGQ9Ik0zNC41Mjc4IDIuNUMzMS4zNjQ2IDIuNSAyNy43NzE0IDMuNzU4NzggMjQuMDU1MSA2LjA5Mjc3QzIwLjM2MTQgOC40MTI2NyAxNi43MDYzIDExLjY5NjQgMTMuNDY5MiAxNS40ODQ0QzYuOTA1NzggMjMuMTY0NyAyLjUwMDQzIDMyLjM3ODEgMi41MDA0MyAzOS4xMTEzQzIuNTAwNDcgNDIuMzIxIDMuNDk5MDIgNDQuNTkwMyA1LjA4ODMyIDQ2LjI5NjlDNi43MzM2OCA0OC4wNjM1IDkuMTc1MDQgNDkuMzk3NiAxMi4zMDQxIDUwLjM2MTNDMTguNjIxNiA1Mi4zMDcgMjYuODc4OCA1Mi41IDM0LjUyNzggNTIuNUM0OC4zMzQ5IDUyLjUgNTkuNTI3OCA0MS4zMDcxIDU5LjUyNzggMjcuNUM1OS41Mjc4IDEzLjY5MjkgNDguMzM0OSAyLjUgMzQuNTI3OCAyLjVaIiBmaWxsPSIjNUEzNTUwIiBzdHJva2U9IiNGN0YxRTYiIHN0cm9rZS13aWR0aD0iNSIvPgo8Y2lyY2xlIGN4PSIxNy4xMTExIiBjeT0iMTcuMTExMSIgcj0iMTcuMTExMSIgdHJhbnNmb3JtPSJtYXRyaXgoLTEgMCAwIDEgNTEuNjM4OSAxMC4zODg5KSIgZmlsbD0iI0Y3RjFFNiIvPgo8ZWxsaXBzZSBjeD0iMzUiIGN5PSIyOCIgcng9IjQiIHJ5PSI2IiBmaWxsPSIjNUEzNTUwIi8+CjxwYXRoIGQ9Ik02Ny43NjkxIDQzLjg0OEM1NC40MjgzIDM4Ljk0NTUgNDkuNzE5OCAzOS43MzkxIDQyLjI2NTYgNDQuNTcxMkMzNC44MTE0IDQ5LjQwMzMgMzUuMzY3NSA0OS42MDc2IDM2Ljk1NDUgNTkuMDI0QzM4LjU0MTUgNjguNDQwNCA1Ni42NDc4IDcwLjY3NzQgNjYuOTcyIDcwLjA1NDdDNzcuMjk2MiA2OS40MzIgOTMuNjQzOSA2Ny44NjggOTQuNDYxMyA2NS42NDQ2Qzk1LjI3ODYgNjMuNDIxMiA4MS4xMDk5IDQ4Ljc1MDQgNjcuNzY5MSA0My44NDhaIiBmaWxsPSIjNUEzNTUwIiBzdHJva2U9IiNGN0YxRTYiIHN0cm9rZS13aWR0aD0iNSIvPgo8cGF0aCBkPSJNNDEuNSA1NEM0MS41IDU0IDUwLjk4MTIgNTguMzY1NyA2MC45OTA2IDYwLjQzMjlDNzEgNjIuNSA4Ny4xMTA5IDYzLjQ3MDIgODcuMTEwOSA2My40NzAyIiBzdHJva2U9IiNGN0YxRTYiIHN0cm9rZS13aWR0aD0iMS41IiBzdHJva2UtbGluZWNhcD0icm91bmQiLz4KPC9zdmc+Cg=="
+                />
+              </svg>
+            </div>
+            <span class="badge badge--2">Grenoble et alentours</span>
+          </div>
+
+          <div class="id-text">
+            <h1 class="name">
+              <span class="fn">Alexandre-Philippe</span>
+              <span class="ln">Perez</span>
+            </h1>
+            <p class="role">
+              Développeur web<br /><span class="accent">front-end</span> junior
+            </p>
+            <p class="intro">
+              Développeur passé par l'animation, je transforme des idées en
+              interfaces claires, accessibles et porteuses de sens. Ce qui me
+              guide : concevoir des projets vraiment utiles, qui améliorent le
+              quotidien du plus grand nombre, une exigence que je porte aussi
+              avec
+              <a href="https://fablioo.com" target="_blank" rel="noopener"
+                >Fablioo</a
+              >.
+            </p>
+          </div>
+        </header>
+
+        <!-- COLONNES -->
+        <div class="cols">
+          <!-- GAUCHE -->
+          <div class="col">
+            <section class="card">
+              <ul class="contact">
+                <li>
+                  <svg class="ic"><use href="#i-mail" /></svg>
+                  <a href="mailto:perezalexandre430@gmail.com"
+                    >perezalexandre430@gmail.com</a
+                  >
+                </li>
+                <li>
+                  <svg class="ic"><use href="#i-phone" /></svg>
+                  <a href="tel:+33630754686">06 30 75 46 86</a>
+                </li>
+                <li>
+                  <svg class="ic"><use href="#i-globe" /></svg>
+                  <a href="https://fablioo.com" target="_blank" rel="noopener"
+                    >fablioo.com</a
+                  >
+                </li>
+                <li>
+                  <svg class="ic"><use href="#i-github" /></svg>
+                  <a
+                    href="https://github.com/Alexandre74739"
+                    target="_blank"
+                    rel="noopener"
+                    >github.com/Alexandre74739</a
+                  >
+                </li>
+                <li>
+                  <svg class="ic"><use href="#i-linkedin" /></svg>
+                  <a
+                    href="https://linkedin.com/in/alexandre74739"
+                    target="_blank"
+                    rel="noopener"
+                    >in/alexandre74739</a
+                  >
+                </li>
+                <li class="contact-ref">
+                  <svg class="ic"><use href="#i-mail" /></svg>
+                  <span>
+                    <b>Référente école</b> · Aurore Cavalière<br />
+                    <a href="mailto:aurore.cavaliere@mydigitalschool.com"
+                      >aurore.cavaliere@mydigitalschool.com</a
+                    >
+                  </span>
+                </li>
+              </ul>
+            </section>
+
+            <section class="card card--accent has-pill">
+              <span class="pill">Compétences</span>
+              <div class="grp">
+                <p class="sub">Front-end</p>
+                <div class="tags">
+                  <span class="tag">React</span><span class="tag">SCSS</span
+                  ><span class="tag">Next.js</span
+                  ><span class="tag">TypeScript</span
+                  ><span class="tag">Tailwind</span>
+                </div>
+              </div>
+              <div class="grp">
+                <p class="sub">Back-end</p>
+                <div class="tags">
+                  <span class="tag">SQL</span><span class="tag">Java</span
+                  ><span class="tag">Prisma</span
+                  ><span class="tag">Supabase</span>
+                </div>
+              </div>
+              <div class="grp">
+                <p class="sub">UX / UI</p>
+                <div class="tags">
+                  <span class="tag">Figma</span><span class="tag">Motion</span>
+                </div>
+              </div>
+
+              <hr class="rule" />
+
+              <div class="grp">
+                <p class="sub">Langues</p>
+                <p class="lines">Anglais : <b>B1</b></p>
+              </div>
+              <div class="grp">
+                <p class="sub">Soft skills</p>
+                <div class="tags">
+                  <span class="tag">Pédagogue</span
+                  ><span class="tag">Créatif</span
+                  ><span class="tag">Consciencieux</span>
+                </div>
+              </div>
+            </section>
+
+            <section class="card has-pill">
+              <span class="pill">Formations</span>
+              <div class="item">
+                <div class="item-h">
+                  <h3>Bachelor Développeur Web</h3>
+                  <span class="date">2025–2027</span>
+                </div>
+                <p class="org">My Digital School Grenoble</p>
+              </div>
+              <hr class="item-sep" />
+              <div class="item">
+                <div class="item-h">
+                  <h3>Licence 1 MIASHS</h3>
+                  <span class="date">2024–2025</span>
+                </div>
+                <p class="org">Université Grenoble Alpes (UGA)</p>
+              </div>
+            </section>
+          </div>
+
+          <!-- DROITE -->
+          <div class="col">
+            <section class="card card--accent has-pill">
+              <span class="pill">Expériences</span>
+              <div class="item">
+                <div class="item-h">
+                  <h3>Chef de projet &amp; développeur web</h3>
+                  <span class="date">Mai–Juin 2026</span>
+                </div>
+                <p class="org">Stage pour Récoltéo</p>
+                <p class="desc">
+                  Plateforme de mise en relation associations / commerçants pour
+                  organiser des collectes d'invendus.
+                </p>
+                <ul>
+                  <li>
+                    <b>Chef de projet</b> et formateur du dev de 1re année :
+                    Apprentissage de Next.js et Tailwind, revues de code,
+                    gestion de la relation cliente.
+                  </li>
+                  <li>
+                    <b>Parcours différenciés</b> asso / commerçant / admin :
+                    Trois tunnels distincts plutôt qu'un formulaire unique, pour
+                    garder chaque profil lisible et gérer facilement la
+                    plateforme.
+                  </li>
+                  <li>
+                    <b>Next.js + Tailwind</b> pour une UI propre livrée vite,
+                    <b>Supabase</b> pour les données, <b>Stripe</b> pour
+                    déléguer la conformité des paiements, mise en prod et
+                    passation au client.
+                  </li>
+                </ul>
+              </div>
+              <hr class="item-sep" />
+              <div class="item">
+                <div class="item-h">
+                  <h3>Animateur péri &amp; extrascolaire</h3>
+                  <span class="date">Depuis 2022</span>
+                </div>
+                <p class="org">Ville de Saint-Martin-d'Hères</p>
+              </div>
+            </section>
+
+            <section class="card has-pill">
+              <span class="pill">Projets</span>
+              <div class="item">
+                <div class="item-h">
+                  <h3>Agitanim</h3>
+                </div>
+                <p class="org">Plateforme inclusive d'aide à l'animation</p>
+                <p class="desc">
+                  Née de mon expérience d'animateur le but est d'aider les
+                  animateurs à inclure tous les enfants, même ceux en situation
+                  de handicap.
+                </p>
+                <ul>
+                  <li>
+                    Recherche à filtres (âge, durée, type de jeu) afin de
+                    ytrouver rapidement des idées d'activités correspondant aux
+                    critères. <b>React + Vite</b> pour un filtrage instantané
+                    côté client, sans rechargement de page.
+                  </li>
+                  <li>
+                    Chaque activité tient dans une fiche PDF téléchargeable,
+                    consultable hors ligne et servi depuis
+                    <b>Supabase</b> via des requêtes <b>PostgreSQL</b>.
+                  </li>
+                  <li>
+                    Une page par handicap rencontré à Saint Martin d'Hères (TSA,
+                    TDAH, trisomie 21, malvoyance, paraplégie). Activités et
+                    pages handicap vivent dans
+                    <b>Supabase / PostgreSQL</b> ce qui permet d'ajouter une
+                    situation ou une fiche depuis le back-office, sans
+                    redéploiement.
+                  </li>
+                </ul>
+              </div>
+              <hr class="item-sep" />
+              <div class="item">
+                <div class="item-h">
+                  <h3>Cronos</h3>
+                </div>
+                <p class="org">Commande fictive d'une application Arte</p>
+                <p class="desc">
+                  Arte n'a pas d'outil simple pour apprendre l'Histoire par ses
+                  causes et ses effets : Cronos y répond avec une PWA grand
+                  public.
+                </p>
+                <ul>
+                  <li>
+                    <b>Next.js</b> : Les pages de contenu stable sont générées
+                    au build en <b>SSG</b> pour un affichage instantané alors
+                    que les vues qui dépendent de la donnée sont rendues côté
+                    serveur en <b>SSR</b>, puis hydratées côté client pour la
+                    frise et la navigation interactives.
+                  </li>
+                  <li>
+                    <b>Tailwind</b> pour reproduire fidèlement la direction
+                    artistique d'Arte et itérer vite sur l'interface.
+                  </li>
+                  <li>
+                    <b>Prisma</b> pour interroger la base sans SQL, avec des
+                    types issus du schéma (événements, périodes, figures,
+                    sources et leurs relations).
+                  </li>
+                </ul>
+              </div>
+            </section>
           </div>
         </div>
-
-        <figure class="qr-block">
-          <img class="qr" alt="QR vers fablioo.com"
-            src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANgAAADYAQMAAACz7r+uAAAABlBMVEUkHRr///+eMDw1AAAA00lEQVR42t2YYQ6FMAiDife/My9PaGExHsAPszg3/zR0LSPyPQKxFxU1vf/VyhXv8ZW9aPR/fDfWnBUKvkapl1dY+IqeIc4S89fcpOGTzlhfWOdv8qgHpZ/LKZqZCgi+1pRO3Ngghp8b3QgNh5+xLUIjQfjq/Lk4SxY/xclNTZA/pEk6VWh9Y/zvEJcM5ZGkL11g2/FR/iDn87RSCatfxgt7sOrPwwZR91v3MI5qjXf/W80XIj4fQpkErD8heXEFSru/x/QLk+R/T58ojrL8j9m//gHTrgt/us4hqQAAAABJRU5ErkJggg==" />
-          <figcaption class="qr-cap">Scanner <b>fablioo.com</b></figcaption>
-        </figure>
       </div>
-
-      <p class="pitch">
-        Je viens de l'animation, je développe le web depuis un an. Ce qui me
-        motive : rendre une interface claire et accessible, puis lui donner une
-        histoire — c'est aussi ce que je fais avec mon studio
-        <a href="https://fablioo.com" target="_blank" rel="noopener">Fablioo</a>.
-      </p>
-
-      <ul class="contact">
-        <li>
-          <svg class="ic"><use href="#i-mail" /></svg>
-          <a href="mailto:perezalexandre430@gmail.com">perezalexandre430@gmail.com</a>
-        </li>
-        <li>
-          <svg class="ic"><use href="#i-phone" /></svg>
-          <a href="tel:+33630754686">06 30 75 46 86</a>
-        </li>
-        <li>
-          <svg class="ic"><use href="#i-github" /></svg>
-          <a href="https://github.com/Alexandre74739" target="_blank" rel="noopener">github.com/Alexandre74739</a>
-        </li>
-        <li>
-          <svg class="ic"><use href="#i-linkedin" /></svg>
-          <a href="https://linkedin.com/in/alexandre74739" target="_blank" rel="noopener">in/alexandre74739</a>
-        </li>
-      </ul>
-    </header>
-
-    <!-- BODY -->
-    <div class="body">
-      <aside class="rail">
-        <section class="blk">
-          <h2><svg class="ic">
-              <use href="#i-spark" />
-            </svg>Compétences</h2>
-          <div class="sk">
-            <h3>Front-end</h3>
-            <div class="tags">
-              <span class="tag">React</span>
-              <span class="tag">Next.js</span>
-              <span class="tag">TypeScript</span>
-              <span class="tag">SCSS</span>
-              <span class="tag">Tailwind</span>
-            </div>
-          </div>
-          <div class="sk">
-            <h3>Back-end</h3>
-            <div class="tags">
-              <span class="tag">SQL</span>
-              <span class="tag">Java</span>
-              <span class="tag">Prisma</span>
-            </div>
-          </div>
-          <div class="sk">
-            <h3>UX / UI</h3>
-            <div class="tags">
-              <span class="tag">Figma</span>
-              <span class="tag">Prototypage</span>
-            </div>
-          </div>
-          <div class="sk">
-            <h3>Méthodes</h3>
-            <div class="tags">
-              <span class="tag">Agile</span>
-              <span class="tag">Scrum</span>
-            </div>
-          </div>
-          <div class="sk">
-            <h3>Savoir-être</h3>
-            <div class="tags">
-              <span class="tag">Pédagogue</span>
-              <span class="tag">Créatif</span>
-              <span class="tag">Consciencieux</span>
-            </div>
-          </div>
-        </section>
-
-        <section class="blk">
-          <h2><svg class="ic">
-              <use href="#i-cap" />
-            </svg>Formations</h2>
-          <div class="track">
-            <div class="ln">
-              <span class="yr">2025 → 2027</span>
-              Bachelor Informatique · My Digital School
-            </div>
-            <div class="ln">
-              <span class="yr">2024 → 2025</span>
-              Licence 1 MIASHS · UGA
-            </div>
-          </div>
-        </section>
-
-        <section class="blk">
-          <h2><svg class="ic">
-              <use href="#i-globe" />
-            </svg>Langues</h2>
-          <div class="lang">
-            <span>Anglais</span><span class="lvl">B1</span>
-          </div>
-        </section>
-
-        <section class="blk">
-          <h2><svg class="ic">
-              <use href="#i-at" />
-            </svg>Contact école</h2>
-          <div class="ln">
-            Aurore Cavalière<br />
-            <a href="mailto:aurore.cavaliere@mydigitalschool.com">aurore.cavaliere@<wbr />mydigitalschool.com</a>
-          </div>
-        </section>
-      </aside>
-
-      <main class="main">
-        <section class="blk">
-          <h2><svg class="ic">
-              <use href="#i-bag" />
-            </svg>Expériences</h2>
-          <div class="track">
-            <article class="job">
-              <div class="job-h">
-                <h3>Récoltéo</h3>
-                <span class="per">Mai → Juin 2026</span>
-              </div>
-              <p class="job-d">
-                <b>Chef de projet &amp; développeur web</b>, stage de 2 mois en
-                binôme avec un autre développeur junior.
-              </p>
-              <ul>
-                <li>
-                  Plateforme de mise en relation associations / commerçants,
-                  avec parcours différenciés selon le type de compte — livrée et
-                  déployée pour l'équipe cliente.
-                </li>
-                <li>
-                  Chef de projet et formateur de l'étudiant de 1re année :
-                  organisation agile, priorisation des tâches, revues de code.
-                </li>
-                <li>
-                  <b>Next.js</b> et <b>Tailwind</b> pour une interface soignée
-                  livrée vite, <b>SQL</b> pour les données métier, <b>Stripe</b>
-                  pour les paiements.
-                </li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job-h">
-                <h3>Animateur péri &amp; extrascolaire</h3>
-                <span class="per">Depuis 2022</span>
-              </div>
-              <p class="job-d">
-                Ville de Saint-Martin-d'Hères : animation de groupes d'enfants
-                et accompagnement des nouveaux animateurs.
-              </p>
-            </article>
-          </div>
-        </section>
-
-        <section class="blk">
-          <h2><svg class="ic">
-              <use href="#i-layers" />
-            </svg>Projets</h2>
-          <div class="track">
-            <article class="job">
-              <div class="job-h">
-                <h3>Agitanim</h3>
-              </div>
-              <p class="job-d">
-                Plateforme inclusive d'aide à l'animation : retrouver vite une
-                activité adaptée à un groupe.
-              </p>
-              <ul>
-                <li>
-                  Né de mon terrain d'animateur : filtrer les activités par
-                  âge, effectif et besoins particuliers en quelques secondes.
-                </li>
-                <li>
-                  Catalogue filtrable, fiches détaillées et espace animateur
-                  pour enregistrer ses séances.
-                </li>
-                <li>
-                  <b>React</b> pour la recherche à filtres instantanée,
-                  <b>SQL</b> pour croiser les critères, <b>SCSS</b> pour un
-                  petit design system.
-                </li>
-              </ul>
-            </article>
-
-            <article class="job">
-              <div class="job-h">
-                <h3>Cronos</h3>
-              </div>
-              <p class="job-d">
-                Application fictive pour Arte : transformer une chronologie
-                dense en un parcours narratif. Frise interactive, fiches
-                événements et personnages, navigation entre les périodes.
-              </p>
-              <ul>
-                <li>
-                  <b>Next.js</b> pour des pages de contenu rapides et bien
-                  référencées, <b>Prisma + SQL</b> pour modéliser événements,
-                  périodes et liens, <b>Tailwind</b> pour maquetter vite.
-                </li>
-              </ul>
-            </article>
-          </div>
-        </section>
-      </main>
-    </div>
-
-    <!-- FOOTER -->
-    <footer class="foot">
-      <a href="https://fablioo.com" target="_blank" rel="noopener">
-        <svg class="ic">
-          <use href="#i-link" />
-        </svg>fablioo.com
-      </a>
-      <span>Chaque projet est une histoire à raconter.</span>
-    </footer>
-  </div>
-</body>
-
+    </main>
+  </body>
 </html>
