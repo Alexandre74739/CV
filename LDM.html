@@ -4,8 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Lettre de motivation — Alexandre-Philippe PEREZ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;1,8..60,400&display=swap"
       rel="stylesheet"
     />
     <style>
@@ -14,18 +16,16 @@
       }
 
       :root {
-        --violet: #6d28d9;
-        --violet-d: #4c1d95;
-        --violet-l: #8b5cf6;
-        --violet-ll: #c4b5fd;
-        --violet-bg: #ede9fe;
-        --white: #ffffff;
-        --off: #faf9ff;
-        --border: #ddd6fe;
-        --text: #1b0b3b;
-        --text-v: #4c1d95;
-        --fp: "Press Start 2P", monospace;
-        --fb: "VT323", monospace;
+        --paper: #f7f1e6;
+        --paper-2: #efe6d3;
+        --sand: #d9c7ab;
+        --encre: #241d1a;
+        --muted: #6f635b;
+        --rosewood: #9e5252;
+        --prune: #5a3550;
+        --f-head: "Archivo Black", system-ui, "Segoe UI", sans-serif;
+        --f-body: "Inter", system-ui, "Segoe UI", sans-serif;
+        --f-quote: "Source Serif 4", Georgia, "Times New Roman", serif;
       }
 
       * {
@@ -35,411 +35,200 @@
       }
 
       body {
-        background: #08001a;
-        background-image: repeating-linear-gradient(
-          0deg,
-          transparent,
-          transparent 3px,
-          rgba(109, 40, 217, 0.04) 3px,
-          rgba(109, 40, 217, 0.04) 4px
-        );
+        background: #ded2b6;
+        font-family: var(--f-body);
+        color: var(--encre);
         display: flex;
         justify-content: center;
         align-items: flex-start;
         min-height: 100vh;
         padding: 2.5rem 1rem;
+        -webkit-font-smoothing: antialiased;
       }
 
-      /* ── PAGE A4 ── */
+      a {
+        color: var(--prune);
+        text-decoration: none;
+      }
+      a:hover {
+        text-decoration: underline;
+      }
+
       .page {
         width: 210mm;
         min-height: 297mm;
-        background: var(--white);
-        color: var(--text);
+        background: var(--paper);
         position: relative;
-        border: 4px solid var(--violet);
-        box-shadow:
-          0 0 0 4px var(--white),
-          0 0 0 8px var(--violet-ll),
-          0 0 4rem rgba(109, 40, 217, 0.45);
         display: flex;
         flex-direction: column;
+        box-shadow: 0 12px 40px rgba(36, 29, 26, 0.22);
       }
 
-      /* coins pixel */
-      .c {
-        position: absolute;
-        width: 14px;
-        height: 14px;
-        background: var(--violet);
-        z-index: 3;
-      }
-      .c.tl {
-        top: -4px;
-        left: -4px;
-      }
-      .c.tr {
-        top: -4px;
-        right: -4px;
-      }
-      .c.bl {
-        bottom: -4px;
-        left: -4px;
-      }
-      .c.br {
-        bottom: -4px;
-        right: -4px;
+      /* ════════ HEADER ════════ */
+      .header {
+        padding: 15mm 15mm 8mm;
       }
 
-      /* ── WIN-BAR ── */
-      .win-bar {
-        background: var(--white);
-        border-bottom: 4px solid var(--violet);
-        padding: 0.9rem 1.5rem 0.75rem;
-        display: flex;
-        align-items: center;
-        gap: 5px;
+      .kicker {
+        font-weight: 600;
+        font-size: 0.9rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--rosewood);
+        margin-bottom: 0.9rem;
       }
 
-      .wd {
-        width: 10px;
-        height: 10px;
-        image-rendering: pixelated;
-      }
-      .wd.a {
-        background: var(--violet);
-        border: 2px solid var(--violet-l);
-      }
-      .wd.b {
-        background: var(--violet-ll);
-        border: 2px solid var(--border);
-      }
-      .wd.c2 {
-        background: var(--border);
-        border: 2px solid var(--violet-ll);
+      .headline {
+        font-family: var(--f-head);
+        font-size: 3.7rem;
+        line-height: 1.04;
+        letter-spacing: -0.015em;
+        color: var(--encre);
       }
 
-      .win-path {
-        font-family: var(--fp);
-        font-size: 1rem;
-        color: var(--violet-l);
-        margin-left: 0.5rem;
+      .headline .accent {
+        color: var(--rosewood);
       }
 
-      /* ── CORPS DE LA LETTRE ── */
-      .letter {
-        flex: 1;
-        padding: 1.4rem 1.8rem 1.2rem;
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-      }
-
-      /* ── BLOC EXPÉDITEUR / DESTINATAIRE ── */
       .meta-grid {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 1.2rem;
-        align-items: flex-start;
+        display: flex;
+        justify-content: space-between;
+        gap: 2.5rem;
+        margin-top: 2.2rem;
+        padding-top: 1.2rem;
+        border-top: 2px solid var(--sand);
       }
 
-      /* Bloc expéditeur (gauche) */
-      .sender {
-        padding: 0.6rem 0.8rem;
-        background: var(--off);
-        border: 2px solid var(--border);
-        border-left: 4px solid var(--violet);
-        position: relative;
-      }
-
-      .sender::after {
-        content: "";
-        position: absolute;
-        bottom: -3px;
-        right: -3px;
-        width: 100%;
-        height: 100%;
-        background: var(--violet);
-        opacity: 0.05;
-        z-index: -1;
+      .block-label {
+        font-weight: 700;
+        font-size: 0.78rem;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--rosewood);
+        margin-bottom: 0.4rem;
       }
 
       .sender-name {
-        font-family: var(--fp);
-        font-size: 1.3rem;
-        color: var(--text);
-        line-height: 1.4;
-        text-shadow: 2px 2px 0 var(--violet-ll);
-        margin-bottom: 0.4rem;
+        font-family: var(--f-head);
+        font-size: 1.4rem;
+        line-height: 1.3;
       }
 
-      .sender-info {
-        font-family: var(--fb);
-        font-size: 1.35rem;
-        color: var(--text-v);
-        line-height: 1.4;
-      }
-
-      .sender-info a {
-        color: var(--text-v);
-        text-decoration: none;
-      }
-
-      .ci {
-        font-family: var(--fp);
-        font-size: 0.9rem;
-        color: var(--violet);
-        margin-right: 0.3rem;
-      }
-
-      /* Bloc destinataire (droite) */
-      .recipient {
-        padding: 0.6rem 0.8rem;
-        background: var(--violet-bg);
-        border: 2px solid var(--border);
-        border-top: 4px solid var(--violet);
-        position: relative;
-      }
-
-      .recipient::after {
-        content: "";
-        position: absolute;
-        bottom: -3px;
-        right: -3px;
-        width: 100%;
-        height: 100%;
-        background: var(--violet);
-        opacity: 0.06;
-        z-index: -1;
-      }
-
-      .recipient-label {
-        font-family: var(--fp);
-        font-size: 1.2rem;
-        color: var(--violet);
-        margin-bottom: 0.4rem;
-        line-height: 1.5;
-      }
-
-      .recipient-label::before {
-        content: "★ ";
-        color: var(--violet-l);
-      }
-
+      .sender-info,
       .recipient-info {
-        font-family: var(--fb);
-        font-size: 1.35rem;
-        color: var(--text-v);
-        line-height: 1.4;
+        font-size: 1.05rem;
+        line-height: 1.6;
+        color: var(--muted);
+        margin-top: 0.35rem;
       }
 
-      /* ── DATE ── */
-      .date-line {
-        font-family: var(--fb);
-        font-size: 1.5rem;
-        color: var(--text-v);
+      .recipient {
         text-align: right;
-        line-height: 1.4;
       }
 
-      /* ── OBJET ── */
-      .title-chip {
-        display: inline-flex;
-        align-items: center;
-        gap: 0.5rem;
-        padding: 0.4rem 0.85rem;
-        background: var(--violet);
-        border: 2px solid var(--violet-l);
-        font-family: var(--fp);
-        font-size: 1.5rem;
-        color: #fff;
-        letter-spacing: 0.03em;
-        position: relative;
+      .recipient-info strong {
+        color: var(--encre);
+        font-weight: 600;
       }
 
-      .title-chip::after {
-        content: "";
-        position: absolute;
-        bottom: -3px;
-        right: -3px;
-        width: 100%;
-        height: 100%;
-        background: var(--violet-d);
-        opacity: 0.3;
-        z-index: -1;
+      .date-line {
+        margin-top: 1.4rem;
+        font-family: var(--f-quote);
+        font-style: italic;
+        font-size: 1.2rem;
+        color: var(--muted);
+        text-align: right;
       }
 
-      .cur {
-        display: inline-block;
-        width: 0.8rem;
-        height: 2rem;
-        background: #fff;
-        animation: blink 1s step-end infinite;
-        vertical-align: middle;
+      /* ════════ LETTER BODY ════════ */
+      .letter {
+        flex: 1;
+        padding: 4mm 15mm 10mm;
+        display: flex;
+        flex-direction: column;
+        gap: 1.15rem;
+        max-width: 165mm;
       }
 
-      /* ── CORPS DU TEXTE ── */
       .para {
-        font-family: var(--fb);
-        font-size: 1.5rem;
-        color: var(--text-v);
-        line-height: 1.55;
+        font-size: 1.22rem;
+        line-height: 1.72;
+        color: var(--encre);
+      }
+
+      .salut {
+        font-family: var(--f-quote);
+        font-size: 1.35rem;
+        color: var(--encre);
       }
 
       .kw {
-        font-family: var(--fp);
-        font-size: 1rem;
-        color: var(--violet);
-        background: var(--violet-bg);
-        padding: 0.1rem 0.35rem;
-        border: 1px solid var(--border);
-        line-height: 1.8;
-        vertical-align: middle;
+        font-weight: 600;
+        color: var(--prune);
       }
 
-      /* ── SIGNATURE ── */
-      .sig-block {
-        display: flex;
-        justify-content: flex-end;
-        margin-top: 0.5rem;
-      }
-
-      .sig-inner {
-        padding: 0.7rem 0.9rem;
-        background: var(--off);
-        border: 2px solid var(--border);
-        border-left: 4px solid var(--violet);
-        position: relative;
-        min-width: 180px;
-      }
-
-      .sig-inner::after {
-        content: "";
-        position: absolute;
-        bottom: -3px;
-        right: -3px;
-        width: 100%;
-        height: 100%;
-        background: var(--violet);
-        opacity: 0.05;
-        z-index: -1;
+      /* ════════ SIGNATURE ════════ */
+      .sig {
+        margin-top: 1rem;
+        align-self: flex-end;
+        text-align: right;
       }
 
       .sig-polite {
-        font-family: var(--fb);
-        font-size: 1.35rem;
-        color: var(--violet);
+        font-family: var(--f-quote);
+        font-style: italic;
+        font-size: 1.25rem;
+        color: var(--muted);
         margin-bottom: 0.3rem;
       }
 
       .sig-name {
-        font-family: var(--fp);
-        font-size: 1rem;
-        color: var(--text);
-        line-height: 1.6;
-        margin-bottom: 0.5rem;
+        font-family: var(--f-head);
+        font-size: 1.3rem;
+        color: var(--encre);
       }
 
-      /* Canvas de signature */
-      .sig-canvas-wrap {
-        position: relative;
-      }
-
-      #sig-canvas {
-        display: block;
-        border: 2px dashed var(--violet-ll);
-        background: var(--white);
-        cursor: crosshair;
-        touch-action: none;
-      }
-
-      .btn-clear {
-        font-family: var(--fp);
-        font-size: 0.8rem;
-        color: var(--violet);
-        background: var(--violet-bg);
-        border: 2px solid var(--border);
-        padding: 0.2rem 0.5rem;
-        cursor: pointer;
-        margin-top: 0.3rem;
-        display: block;
-        width: 100%;
-        text-align: center;
-        position: relative;
-      }
-
-      .btn-clear:hover {
-        background: var(--border);
-      }
-
-      @media print {
-        .btn-clear,
-        .sig-hint {
-          display: none;
-        }
-        #sig-canvas {
-          border: 1px solid var(--border);
-        }
-      }
-
-      /* ── FOOTER ── */
+      /* ════════ FOOTER ════════ */
       .footer {
-        border-top: 4px solid var(--violet-d);
-        padding: 0.55rem 1.5rem;
+        border-top: 2px solid var(--sand);
+        padding: 4mm 15mm;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        background: var(--violet);
-      }
-
-      .ftxt {
-        font-family: var(--fp);
         font-size: 1rem;
-        text-decoration: none;
-        color: var(--violet-ll);
-        line-height: 1.4;
+        color: var(--muted);
+        background: var(--paper-2);
       }
 
-      .coin {
-        font-family: var(--fp);
-        font-size: 1rem;
-        color: var(--violet-ll);
-        animation: blink 1s step-end infinite;
+      .footer a {
+        font-weight: 600;
+        color: var(--prune);
       }
 
-      .fhrt {
-        font-family: var(--fp);
-        font-size: 1rem;
-        color: #fff;
-        letter-spacing: 0.35rem;
+      .footer .tale {
+        font-family: var(--f-quote);
+        font-style: italic;
       }
 
-      /* ── IMPRESSION ── */
       @media print {
         @page {
           size: 210mm 297mm;
           margin: 0;
         }
-        body {
-          background: none;
-          padding: 0;
+        * {
           -webkit-print-color-adjust: exact;
           print-color-adjust: exact;
         }
+        body {
+          background: none;
+          padding: 0;
+        }
         .page {
-          width: 210mm;
-          min-height: 297mm;
           box-shadow: none;
+          width: 210mm;
         }
-        .cur,
-        .coin {
-          animation: none;
-        }
-      }
-
-      @keyframes blink {
-        50% {
-          opacity: 0;
+        a {
+          text-decoration: none;
         }
       }
     </style>
@@ -447,185 +236,96 @@
 
   <body>
     <div class="page">
-      <div class="c tl"></div>
-      <div class="c tr"></div>
-      <div class="c bl"></div>
-      <div class="c br"></div>
+      <!-- ══════════ HEADER ══════════ -->
+      <header class="header">
+        <div class="kicker">Lettre de motivation</div>
 
-      <!-- ══ WIN-BAR ══ -->
-      <div class="win-bar">
-        <div class="wd a"></div>
-        <div class="wd b"></div>
-        <div class="wd c2"></div>
-        <span class="win-path"
-          >~/lettre-de-motivation/perez-alexandre-philippe</span
-        >
-      </div>
+        <h1 class="headline">
+          Alternance —<br /><span class="accent">développeur web</span>
+        </h1>
 
-      <!-- ══ CORPS ══ -->
-      <div class="letter">
-        <!-- EXPÉDITEUR / DESTINATAIRE -->
         <div class="meta-grid">
-          <!-- ✏️ Expéditeur -->
           <div class="sender">
+            <div class="block-label">Candidat</div>
             <div class="sender-name">PEREZ Alexandre-Philippe</div>
             <div class="sender-info">
-              <div>14 Terrasse Jean Renaudie, 38400 Saint-Martin-d'Hères</div>
-              <div>
-                <span class="ci">TEL</span
-                ><a href="tel:+33630754686">06 30 75 46 86</a>
-              </div>
-              <div>
-                <span class="ci">MAIL</span
-                ><a href="mailto:perezalexandre430@gmail.com"
-                  >perezalexandre430@gmail.com</a
-                >
-              </div>
+              Saint-Martin-d'Hères · dispo sur Grenoble et aux alentours<br />
+              <a href="tel:+33630754686">06 30 75 46 86</a> ·
+              <a href="mailto:perezalexandre430@gmail.com"
+                >perezalexandre430@gmail.com</a
+              ><br />
+              <a href="https://fablioo.com" target="_blank" rel="noopener"
+                >fablioo.com</a
+              >
             </div>
           </div>
 
-          <!-- ✏️ Destinataire -->
           <div class="recipient">
-            <div class="recipient-label">A l'attention de</div>
+            <div class="block-label">À l'attention de</div>
             <div class="recipient-info">
-              <div><strong>Soitec</strong></div>
-              <div>Service Recrutement</div>
-              <div>Bernin, Grenoble</div>
+              <strong>SPEEDI RYCHI NYLON</strong><br />
+              Service Recrutement — Pôle Digital<br />
+              5 Boulevard de Trèves, 57070 Metz<br />
+              <a href="mailto:recrutement@speedi.org">recrutement@speedi.org</a>
             </div>
           </div>
         </div>
 
-        <!-- DATE -->
-        <div class="date-line">Saint-Martin-d'Hères, le 03/07/2026</div>
+        <div class="date-line">Saint-Martin-d'Hères, le 9 septembre 2026</div>
+      </header>
 
-        <!-- OBJET -->
-        <div>
-          <div class="title-chip">
-            OBJET : ALTERNANCE – IT CIM DEVELOPER .NET/ANGULAR<span
-              class="cur"
-            ></span>
-          </div>
-        </div>
+      <!-- ══════════ LETTER ══════════ -->
+      <div class="letter">
+        <p class="salut">Madame, Monsieur,</p>
 
-        <!-- SALUTATION -->
-        <p class="para">Madame, Monsieur,</p>
-
-        <!-- PARAGRAPHE 1 — Accroche / contexte -->
         <p class="para">
-          Leader mondial des matériaux semi-conducteurs innovants,
-          <span class="kw">Soitec</span> conjugue excellence industrielle et
-          technologies de pointe. C’est cette exigence, où chaque ligne de code
-          pilote une production réelle, qui m’attire dans votre candidature
-          d’alternance.
+          Depuis près de 27 ans, <span class="kw">Speedi Rychi Nylon</span>
+          accompagne les marques sur quatre fronts : conseil, identité, digital
+          et événementiel. Votre pôle <span class="kw">digital</span> fait vivre
+          des sites <span class="kw">WordPress</span> et
+          <span class="kw">Prestashop</span> comme des projets
+          <span class="kw">React</span> ou <span class="kw">Vue.js</span> : cette
+          variété de technos et de clients est exactement le terrain sur lequel
+          je veux apprendre.
         </p>
 
-        <!-- PARAGRAPHE 2 — Candidature & méthode -->
         <p class="para">
           Actuellement en <span class="kw">B2 Développement Web</span> à My
           Digital School, je vous adresse ma candidature pour cette alternance.
-          Le <span class="kw">CIM</span> m’intéresse particulièrement : c’est du
-          développement qui a un impact direct et concret sur la production, à
-          la croisée du logiciel et de l’industrie.
+          Ce qui m'intéresse dans votre annonce, c'est votre stack technique qui
+          correspond à mon profil : <span class="kw">React / Next.js</span> et
+          <span class="kw">WordPress</span>. C'est d'ailleurs la stack que
+          j'utilise dans mes projets scolaires et personnels, ce qui me permettra
+          d'être rapidement opérationnel.
         </p>
 
-        <!-- PARAGRAPHE 3 — Missions ciblées -->
         <p class="para">
-          Ma pratique actuelle repose sur <span class="kw">TypeScript</span> et
-          <span class="kw">React/Next.js</span>, ainsi que sur
-          <span class="kw">Java</span> côté back-end : des bases orientées objet
-          et typées, proches dans leur logique du couple
-          <span class="kw">.NET/Angular</span>. Je sais que la transition
-          demande un vrai apprentissage, et c’est précisément ce que je
-          recherche : monter en compétence vite, au contact d’une équipe IT
-          qualifiée.
+          Je viens du <span class="kw">front-end</span> et je cherche
+          précisément une alternance pour aller plus loin : apprendre
+          <span class="kw">WordPress</span> en profondeur, comprendre la logique
+          back-end en <span class="kw">PHP</span> et les bases de données, et
+          maîtriser le cycle complet d'un projet, de la conception à la mise en
+          ligne. Rejoindre une <span class="kw">agence</span> qui suit chaque
+          site de A à Z est, pour moi, la meilleure façon d'acquérir cette vision
+          globale.
         </p>
 
-        <!-- PARAGRAPHE 4 — Profil / valeur ajoutée -->
         <p class="para">
-          Lors d’un stage de deux mois, j’ai occupé le rôle de
-          <span class="kw">chef de projet</span> aux côtés d’un développeur
-          junior, que j'ai aussi dû former, pour livrer une plateforme
-          fonctionnelle et déployée. Cette expérience, associée à mon parcours
-          d’animateur, m’a appris à <span class="kw">SIMPLIFIER</span> un
-          problème complexe, <span class="kw">M’ADAPTER</span> vite à un nouvel
-          environnement et transmettre ce que j’apprends : des réflexes utiles
-          pour évoluer dans un système industriel comme le votre.
+          Je reste disponible pour un entretien, en visio ou dans vos locaux, et
+          vous prie d'agréer, Madame, Monsieur, mes cordiales salutations.
         </p>
 
-        <!-- PARAGRAPHE 5 — Clôture -->
-        <p class="para">
-          Rejoindre <span class="kw">Soitec</span>, c’est allier mon appétence
-          pour le développement à un environnement industriel de pointe, où
-          chaque projet a un impact mesurable sur la production. Je reste à
-          votre disposition pour un entretien et vous adresse, dans cette
-          attente, mes cordiales salutations.
-        </p>
-
-        <!-- SIGNATURE -->
-        <div class="sig-block">
-          <div class="sig-inner">
-            <div class="sig-polite">Cordialement,</div>
-            <div class="sig-name">PEREZ Alexandre-Philippe</div>
-            <div class="sig-canvas-wrap">
-              <canvas id="sig-canvas" width="220" height="70"></canvas>
-              <button class="btn-clear" id="btn-clear">⌫ EFFACER</button>
-            </div>
-          </div>
+        <div class="sig">
+          <div class="sig-polite">Cordialement,</div>
+          <div class="sig-name">PEREZ Alexandre-Philippe</div>
         </div>
       </div>
 
-      <!-- ══ FOOTER ══ -->
+      <!-- ══════════ FOOTER ══════════ -->
       <footer class="footer">
-        <a
-          href="https://perezpixel.com"
-          class="ftxt"
-          target="_blank"
-          rel="noopener"
-          >perezpixel.com</a
-        >
-        <span class="fhrt">♥ ♥ ♥</span>
-        <span class="coin">INSERT COIN TO HIRE</span>
+        <a href="https://fablioo.com" target="_blank" rel="noopener">fablioo.com</a>
+        <span class="tale">Chaque projet est une histoire à raconter.</span>
       </footer>
     </div>
-
-    <script>
-      const canvas = document.getElementById("sig-canvas");
-      const ctx = canvas.getContext("2d");
-      ctx.strokeStyle = "#4c1d95";
-      ctx.lineWidth = 2;
-      ctx.lineCap = "round";
-      ctx.lineJoin = "round";
-
-      let drawing = false;
-
-      function getPos(e) {
-        const r = canvas.getBoundingClientRect();
-        const src = e.touches ? e.touches[0] : e;
-        return { x: src.clientX - r.left, y: src.clientY - r.top };
-      }
-
-      canvas.addEventListener("pointerdown", (e) => {
-        drawing = true;
-        const p = getPos(e);
-        ctx.beginPath();
-        ctx.moveTo(p.x, p.y);
-        e.preventDefault();
-      });
-
-      canvas.addEventListener("pointermove", (e) => {
-        if (!drawing) return;
-        const p = getPos(e);
-        ctx.lineTo(p.x, p.y);
-        ctx.stroke();
-        e.preventDefault();
-      });
-
-      canvas.addEventListener("pointerup", () => (drawing = false));
-      canvas.addEventListener("pointerleave", () => (drawing = false));
-
-      document.getElementById("btn-clear").addEventListener("click", () => {
-        ctx.clearRect(0, 0, canvas.width, canvas.height);
-      });
-    </script>
   </body>
 </html>
