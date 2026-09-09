@@ -63,7 +63,7 @@
         --paper: #f7f1e6;
         --paper-2: #f1e7d5;
         --card: #fffdf5;
-        --ink: #2b2320;
+        --ink: #241c19;
         --ink-soft: #6f6157;
         --prune: #5a3550;
         --prune-line: #b9a3b4;
@@ -77,7 +77,7 @@
         --f-serif: "Source Serif 4", Georgia, "Times New Roman", serif;
         --f-body: "Inter", system-ui, "Segoe UI", Arial, sans-serif;
 
-        --bd: 2.5px solid var(--prune);
+        --bd: 2px solid var(--prune);
         --radius: 18px;
       }
 
@@ -120,7 +120,7 @@
         z-index: 1;
         display: flex;
         flex-direction: column;
-        gap: 12mm;
+        gap: 9.5mm;
       }
 
       /* ═══════════ STICKERS — doodles SVG façon modèle ═══════════ */
@@ -273,11 +273,12 @@
       }
 
       .intro {
-        margin-top: 12px;
+        margin-top: 9px;
         max-width: 99%;
         font-family: var(--f-serif);
-        font-size: 14px;
-        line-height: 1.5;
+        font-size: 13px;
+        font-weight: 500;
+        line-height: 1.48;
         color: var(--ink);
       }
 
@@ -298,7 +299,7 @@
       .col {
         display: flex;
         flex-direction: column;
-        gap: 7mm;
+        gap: 28px;
         justify-content: flex-start;
       }
 
@@ -317,7 +318,7 @@
         background: var(--card);
         border: var(--bd);
         border-radius: var(--radius);
-        padding: 5mm 5mm 4.5mm;
+        padding: 4.4mm 4.6mm 4mm;
         box-shadow: 4px 5px 0 var(--ink);
       }
 
@@ -337,7 +338,7 @@
       }
 
       .card.has-pill {
-        padding-top: 6.5mm;
+        padding-top: 5.8mm;
       }
 
       /* ---------- contact ---------- */
@@ -347,6 +348,7 @@
         flex-direction: column;
         gap: 3mm;
         font-size: 8.9pt;
+        font-weight: 500;
       }
 
       .contact li {
@@ -396,13 +398,13 @@
       }
 
       .grp + .grp {
-        margin-top: 3mm;
+        margin-top: 3.4mm;
       }
 
       .tags {
         display: flex;
         flex-wrap: wrap;
-        gap: 1.5mm;
+        gap: 2mm 1.6mm;
       }
 
       .tag {
@@ -410,14 +412,16 @@
         font-weight: 600;
         line-height: 1.3;
         padding: 0.9mm 2.6mm;
-        border: 1px solid var(--prune-line);
+        border: 1.4px solid var(--prune);
         border-radius: 999px;
         background: var(--paper-2);
         color: var(--prune);
+        box-shadow: 1.4px 1.8px 0 var(--ink);
       }
 
       .lines {
         font-size: 9.3pt;
+        font-weight: 500;
         line-height: 1.5;
       }
 
@@ -428,7 +432,7 @@
       .rule {
         border: none;
         border-top: 1.5px solid var(--prune-line);
-        margin: 2.8mm 0;
+        margin: 3mm 0;
       }
 
       /* ---------- formation / expérience / projets ---------- */
@@ -439,7 +443,7 @@
       .item-sep {
         border: none;
         border-top: 1.5px solid var(--prune-line);
-        margin: 3mm 0;
+        margin: 3.2mm 0;
       }
 
       .item-h {
@@ -473,9 +477,10 @@
       }
 
       .item .desc {
-        margin-top: 1.7mm;
-        font-size: 9pt;
-        line-height: 1.45;
+        margin-top: 2mm;
+        font-size: 8.6pt;
+        font-weight: 500;
+        line-height: 1.42;
         color: var(--ink);
       }
 
@@ -494,17 +499,18 @@
       /* ---------- puces de détail (expérience / projets) ---------- */
       .item ul {
         list-style: none;
-        margin-top: 1.6mm;
+        margin-top: 2mm;
         display: flex;
         flex-direction: column;
-        gap: 1.2mm;
+        gap: 2mm;
       }
 
       .item li {
         position: relative;
         padding-left: 4.6mm;
-        font-size: 9pt;
-        line-height: 1.4;
+        font-size: 8.6pt;
+        font-weight: 500;
+        line-height: 1.42;
         color: var(--ink);
       }
 
@@ -525,7 +531,7 @@
 
       @media print {
         @page {
-          size: 210mm 297mm;
+          size: A4;
           margin: 0;
         }
 
@@ -534,20 +540,27 @@
           print-color-adjust: exact;
         }
 
+        html,
         body {
-          background: none;
+          margin: 0;
           padding: 0;
+          background: none;
         }
 
+        /* la feuille = exactement une page A4, tout débord est rogné */
         .sheet {
+          width: 210mm;
+          height: 297mm;
+          min-height: 0;
+          overflow: hidden;
           box-shadow: none;
-          min-height: 297mm;
+          break-inside: avoid;
+          page-break-inside: avoid;
         }
 
-        /* filet de sécurité : garantit une seule page A4 même si le contenu
-           dépasse de quelques millimètres */
+        /* filet de sécurité : léger tassement pour ne jamais toucher le rognage */
         .wrap {
-          zoom: 0.95;
+          zoom: 0.96;
         }
       }
     </style>
@@ -876,7 +889,7 @@
                 <ul>
                   <li>
                     Recherche à filtres (âge, durée, type de jeu) afin de
-                    ytrouver rapidement des idées d'activités correspondant aux
+                    trouver rapidement des idées d'activités correspondant aux
                     critères. <b>React + Vite</b> pour un filtrage instantané
                     côté client, sans rechargement de page.
                   </li>
