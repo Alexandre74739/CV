@@ -824,10 +824,31 @@
             <hr class="item-sep" />
             <div class="item">
               <div class="item-h">
-                <h3>Animateur péri &amp; extrascolaire</h3>
-                <span class="date">Depuis 2022</span>
+                <h3>Développeur web freelance</h3>
+                <span class="date">Depuis avr. 2026</span>
               </div>
-              <p class="org">Ville de Saint-Martin-d'Hères</p>
+              <p class="org">L'Échiquier Martinerois</p>
+              <p class="desc">
+                Nouveau site du club d'échecs de Saint-Martin-d'Hères, en
+                remplacement d'un ancien Blogspot peu référencé et inutilisé.
+              </p>
+              <ul>
+                <li>
+                  <b>Sanity</b> comme CMS : le président et le trésorier
+                  gèrent tarifs, tournois et actualités sans compétences
+                  techniques.
+                </li>
+                <li>
+                  <b>Stockfish</b> embarqué dans le navigateur pour analyser
+                  ses parties et résoudre des puzzles, sans aucun serveur à
+                  payer pour le club.
+                </li>
+                <li>
+                  <b>Next.js + Tailwind</b> pour un site rapide et bien
+                  référencé, avec adhésions en ligne via <b>HelloAsso</b>, puis
+                  maintenance et évolutions.
+                </li>
+              </ul>
             </div>
           </section>
 
@@ -835,62 +856,42 @@
             <span class="pill">Projets</span>
             <div class="item">
               <div class="item-h">
-                <h3>Agitanim</h3>
+                <h3>Ticawa</h3>
               </div>
-              <p class="org">Plateforme inclusive d'aide à l'animation</p>
+              <p class="org">PWA de suivi des garanties</p>
               <p class="desc">
-                Née de mon expérience d'animateur le but est d'aider les
-                animateurs à inclure tous les enfants, même ceux en situation
-                de handicap.
+                Conserve les preuves d'achat, indique quelles garanties
+                couvrent chaque produit et prévient avant leur expiration.
               </p>
               <ul>
                 <li>
-                  Recherche à filtres (âge, durée, type de jeu) afin de
-                  trouver rapidement des idées d'activités correspondant aux
-                  critères. <b>React + Vite</b> pour un filtrage instantané
-                  côté client, sans rechargement de page.
+                  <b>Nuxt + Tailwind</b> en PWA : scan des tickets avec OCR
+                  (Tesseract.js) directement dans le navigateur.
                 </li>
                 <li>
-                  Chaque activité tient dans une fiche PDF téléchargeable,
-                  consultable hors ligne et servi depuis
-                  <b>Supabase</b> via des requêtes <b>PostgreSQL</b>.
-                </li>
-                <li>
-                  Une page par handicap rencontré à Saint Martin d'Hères (TSA,
-                  TDAH, trisomie 21, malvoyance, paraplégie). Activités et
-                  pages handicap vivent dans
-                  <b>Supabase / PostgreSQL</b> ce qui permet d'ajouter une
-                  situation ou une fiche depuis le back-office, sans
-                  redéploiement.
+                  <b>PostgreSQL</b>, connexion Google, notifications push et
+                  rappels.
                 </li>
               </ul>
             </div>
             <hr class="item-sep" />
             <div class="item">
               <div class="item-h">
-                <h3>Cronos</h3>
+                <h3>Agitanim</h3>
               </div>
-              <p class="org">Commande fictive d'une application Arte</p>
+              <p class="org">Plateforme inclusive d'aide à l'animation</p>
               <p class="desc">
-                Arte n'a pas d'outil simple pour apprendre l'Histoire par ses
-                causes et ses effets : Cronos y répond avec une PWA grand
-                public.
+                Née de mon expérience d'animateur : aider à inclure tous les
+                enfants, même ceux en situation de handicap.
               </p>
               <ul>
                 <li>
-                  <b>Next.js</b> : Les pages de contenu stable sont générées
-                  au build en <b>SSG</b> pour un affichage instantané alors
-                  que les vues qui dépendent de la donnée sont rendues côté
-                  serveur en <b>SSR</b>, puis hydratées côté client pour la
-                  frise et la navigation interactives.
+                  <b>React + Vite</b> : recherche à filtres (âge, durée, type
+                  de jeu) instantanée côté client.
                 </li>
                 <li>
-                  <b>Tailwind</b> pour reproduire fidèlement la DA d'Arte.
-                </li>
-                <li>
-                  <b>Prisma</b> pour interroger la base sans SQL, avec des
-                  types issus du schéma (événements, périodes, figures,
-                  sources et leurs relations).
+                  <b>Supabase / PostgreSQL</b> : fiches PDF et pages handicap
+                  ajoutées depuis le back-office, sans redéploiement.
                 </li>
               </ul>
             </div>
